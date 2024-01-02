@@ -1,7 +1,4 @@
-/* 
-  Localizable.strings
-  swift-example
-
-  Created by 픽셀로 on 2024/01/02.
-  
-*/
+"hello" = "Hello.";
+"myName" = "My name is Happy Potato.";
+"niceToMeetYou" = "Nice to meet you.";
+"weatherIsClear" = "The weather is clear today.";
