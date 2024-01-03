@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231C18032B44D8F800EE9BDD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 231C18022B44D8F800EE9BDD /* RxCocoa */; };
+		231C18052B44D8F800EE9BDD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 231C18042B44D8F800EE9BDD /* RxSwift */; };
+		231C18092B44D9CE00EE9BDD /* RxSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C18082B44D9CE00EE9BDD /* RxSampleVC.swift */; };
+		231C180B2B44E33C00EE9BDD /* RxEyeTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C180A2B44E33C00EE9BDD /* RxEyeTrackingVC.swift */; };
+		231C180E2B44E3C600EE9BDD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 231C180D2B44E3C600EE9BDD /* SnapKit */; };
+		231C18112B44E3D200EE9BDD /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 231C18102B44E3D200EE9BDD /* Then */; };
 		23D6C8A82B43D5B600B96C95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C8A72B43D5B600B96C95 /* AppDelegate.swift */; };
 		23D6C8AA2B43D5B600B96C95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C8A92B43D5B600B96C95 /* SceneDelegate.swift */; };
 		23D6C8AC2B43D5B600B96C95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C8AB2B43D5B600B96C95 /* ViewController.swift */; };
@@ -19,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		231C18082B44D9CE00EE9BDD /* RxSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSampleVC.swift; sourceTree = "<group>"; };
+		231C180A2B44E33C00EE9BDD /* RxEyeTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxEyeTrackingVC.swift; sourceTree = "<group>"; };
 		23D6C8A42B43D5B600B96C95 /* swift-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D6C8A72B43D5B600B96C95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D6C8A92B43D5B600B96C95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231C180E2B44E3C600EE9BDD /* SnapKit in Frameworks */,
+				231C18052B44D8F800EE9BDD /* RxSwift in Frameworks */,
+				231C18032B44D8F800EE9BDD /* RxCocoa in Frameworks */,
+				231C18112B44E3D200EE9BDD /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				23D6C8D62B43E8F100B96C95 /* LocalizationVC.swift */,
+				231C18082B44D9CE00EE9BDD /* RxSampleVC.swift */,
+				231C180A2B44E33C00EE9BDD /* RxEyeTrackingVC.swift */,
 				23D6C8AB2B43D5B600B96C95 /* ViewController.swift */,
 				23D6C8C62B43D9DE00B96C95 /* .gitkeep */,
 			);
@@ -161,6 +175,12 @@
 			dependencies = (
 			);
 			name = "swift-example";
+			packageProductDependencies = (
+				231C18022B44D8F800EE9BDD /* RxCocoa */,
+				231C18042B44D8F800EE9BDD /* RxSwift */,
+				231C180D2B44E3C600EE9BDD /* SnapKit */,
+				231C18102B44E3D200EE9BDD /* Then */,
+			);
 			productName = "swift-example";
 			productReference = 23D6C8A42B43D5B600B96C95 /* swift-example.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +210,11 @@
 				ko,
 			);
 			mainGroup = 23D6C89B2B43D5B600B96C95;
+			packageReferences = (
+				231C18012B44D8F800EE9BDD /* XCRemoteSwiftPackageReference "RxSwift" */,
+				231C180C2B44E3C600EE9BDD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				231C180F2B44E3D200EE9BDD /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 23D6C8A52B43D5B600B96C95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -217,6 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231C18092B44D9CE00EE9BDD /* RxSampleVC.swift in Sources */,
+				231C180B2B44E33C00EE9BDD /* RxEyeTrackingVC.swift in Sources */,
 				23D6C8AC2B43D5B600B96C95 /* ViewController.swift in Sources */,
 				23D6C8D92B43E94900B96C95 /* LanguageLiterals.swift in Sources */,
 				23D6C8D72B43E8F100B96C95 /* LocalizationVC.swift in Sources */,
@@ -439,6 +466,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		231C18012B44D8F800EE9BDD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		231C180C2B44E3C600EE9BDD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		231C180F2B44E3D200EE9BDD /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		231C18022B44D8F800EE9BDD /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231C18012B44D8F800EE9BDD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		231C18042B44D8F800EE9BDD /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231C18012B44D8F800EE9BDD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		231C180D2B44E3C600EE9BDD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231C180C2B44E3C600EE9BDD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		231C18102B44E3D200EE9BDD /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231C180F2B44E3D200EE9BDD /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23D6C89C2B43D5B600B96C95 /* Project object */;
 }
