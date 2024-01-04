@@ -10,8 +10,6 @@ import AVFoundation
 import Vision
 import Photos
 
-import RxSwift
-import RxCocoa
 import SnapKit
 import Then
 
@@ -33,10 +31,10 @@ final class RxFaceTrackingVC: UIViewController {
     }
     
     private let captureSession = AVCaptureSession() // 비디오의 입력과 출력을 관리하는 세션
-    
-    private let videoDataOutput = AVCaptureVideoDataOutput() // 비디오의 출력을 설정
-    
+        
     private var faceLayers: [CALayer] = []
+    
+    private var currentSampleBuffer: CMSampleBuffer?
     
     // MARK: - UI Components
     
@@ -101,12 +99,14 @@ extension RxFaceTrackingVC {
         )
         
         view.layer.addSublayer(previewLayer)    // 현재 뷰의 하위 레이어로 추가
-        self.videoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)] as [String : Any]    // [Core Viedo에서 사용되는 픽셀 형식 : 32bit BGRA 형식, 일반적으로 사용되는 형식]
-        self.videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "camera queue")) // 비디오 출력에 대한 샘플 버퍼 딜리게이트 설정
-        self.captureSession.addOutput(self.videoDataOutput) // captureSession에 output 추가
+        
+        let videoDataOutput = AVCaptureVideoDataOutput()
+        videoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)] as [String : Any]    // [Core Viedo에서 사용되는 픽셀 형식 : 32bit BGRA 형식, 일반적으로 사용되는 형식]
+        videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "camera queue")) // 비디오 출력에 대한 샘플 버퍼 딜리게이트 설정
+        self.captureSession.addOutput(videoDataOutput) // captureSession에 output 추가
         
         // input과 output 간의 connection 생성
-        let videoConnection = self.videoDataOutput.connection(with: .video)
+        let videoConnection = videoDataOutput.connection(with: .video)
         videoConnection?.videoOrientation = .portrait   // 비디오 방향 세로 설정
         
         self.captureSession.commitConfiguration() // AVCaptureSession의 설정 변경 완료
@@ -141,16 +141,31 @@ extension RxFaceTrackingVC {
     }
     
     private func savePhoto() {
-        let diameter: CGFloat = 100
-        let rect = CGRect(origin: CGPoint.zero,
-                          size: CGSize(width: diameter, height: diameter))
+        guard let currentSampleBuffer = self.currentSampleBuffer else { return }
+        guard let imageBuffer = CMSampleBufferGetImageBuffer(currentSampleBuffer) else { return }
+
+        let ciImage = CIImage(cvPixelBuffer: imageBuffer)
+        let uiImage = UIImage(ciImage: ciImage)
+        
+        let rect = previewLayer.bounds
         let renderer = UIGraphicsImageRenderer(size: rect.size)
-        let lenderedImage = renderer.image { context in
-            return faceLayers[0].render(in: context.cgContext)
+        let renderedImage = renderer.image { context in
+            // 비디오 프레임을 렌더링 (비율을 유지하며 잘라내기)
+            let aspectRatio = uiImage.size.width / uiImage.size.height
+            let targetWidth = previewLayer.bounds.width
+            let targetHeight = targetWidth / aspectRatio
+            let yOffset = (previewLayer.bounds.height - targetHeight) / 2.0
+            let targetRect = CGRect(x: 0, y: yOffset, width: targetWidth, height: targetHeight)
+            uiImage.draw(in: targetRect)
+            
+            // previewLayer를 렌더링
+            previewLayer.render(in: context.cgContext)
         }
         
-        UIImageWriteToSavedPhotosAlbum(lenderedImage, self, #selector(saveImage), nil)
+        // 캡쳐한 이미지를 저장
+        UIImageWriteToSavedPhotosAlbum(renderedImage, self, #selector(saveImage(_:didFinishSavingWithError:contextInfo:)), nil)
     }
+
 }
 
 // MARK: - @objc Function
@@ -160,8 +175,13 @@ extension RxFaceTrackingVC {
         savePhoto()
     }
     
-    @objc private func saveImage() {
-        
+    @objc private func saveImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+           print("Error saving image: \(error.localizedDescription)")
+       } else {
+           print("Image saved successfully!")
+           showToast(message: "포차코를 저장했어요")
+       }
     }
 }
 
@@ -191,15 +211,21 @@ extension RxFaceTrackingVC {
 
 extension RxFaceTrackingVC: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }  // CMSampleBuffer에서 이미지 버퍼를 가져옴
         
         // VNDetectFaceLandmarksRequest: 얼굴 특징 감지
-        let faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: { ( request: VNRequest, error: Error?) in
+        
+        /**
+         일반적으로 GCD에서 비동기적으로 실행되는 클로저 블록 내에서 self를 약한 참조(weak reference)로 캡처하는 것이 권장됩니다. 이는 강한 참조로 인한 순환 참조를 방지하고 메모리 누수를 방지하기 위한 것입니다.
+         **/
+        
+        let faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: { [weak self] (request: VNRequest, error: Error?) in
+            guard let self = self else { return }  // self가 nil이면 이미 해제된 상태이므로 더 이상 작업을 수행하지 않음
+            
             DispatchQueue.main.async {
-                // 새로운 특징을 감지할 때마다, 이전의 레이어를 삭제하고 새로운 특징을 표시하게 함
                 self.faceLayers.forEach({ $0.removeFromSuperlayer() })
                 
-                // 요청 결과에서 face observation을 얻을 경우 처리
                 if let observations = request.results as? [VNFaceObservation] {
                     self.handleFaceDetectionObservations(observations: observations)
                 }
@@ -210,9 +236,9 @@ extension RxFaceTrackingVC: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         do {
             try imageRequestHandler.perform([faceDetectionRequest])
+            currentSampleBuffer = sampleBuffer
         } catch {
             print(error.localizedDescription)
         }
     }
 }
-
