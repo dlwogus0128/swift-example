@@ -1,5 +1,5 @@
 //
-//  RxFaceTrackingVC.swift
+//  PochacoFilterVC.swift
 //  swift-example
 //
 //  Created by 픽셀로 on 2024/01/03.
@@ -13,7 +13,7 @@ import Photos
 import SnapKit
 import Then
 
-final class RxFaceTrackingVC: UIViewController {
+final class PochacoFilterVC: UIViewController {
     
     // MARK: - Properties
     
@@ -44,7 +44,7 @@ final class RxFaceTrackingVC: UIViewController {
     }
     
     private let takePictureButton = UIButton(type: .system).then {
-        $0.setTitle("take picture", for: .normal)
+        $0.setTitle("포차코를 포착", for: .normal)
     }
     
     private lazy var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession).then {    // captureSession의 시각적 출력을 프리뷰
@@ -64,7 +64,7 @@ final class RxFaceTrackingVC: UIViewController {
 
 // MARK: - Methods
 
-extension RxFaceTrackingVC {
+extension PochacoFilterVC {
     private func setAddTarget() {
         self.takePictureButton.addTarget(self, action: #selector(takePictureButtonDidTap), for: .touchUpInside)
     }
@@ -120,11 +120,10 @@ extension RxFaceTrackingVC {
     private func handleFaceDetectionObservations(observations: [VNFaceObservation]) {
         for observation in observations {
             let faceRectConverted = self.previewLayer.layerRectConverted(fromMetadataOutputRect: observation.boundingBox)
-            let faceRectanglePath = CGPath(rect: faceRectConverted, transform: nil)
 
             let faceLayer = CALayer()
             faceLayer.bounds = faceRectConverted
-            faceLayer.position = CGPoint(x: faceRectanglePath.boundingBox.midX, y: faceRectanglePath.boundingBox.midY)
+            faceLayer.position = CGPoint(x: faceRectConverted.midX, y: faceRectConverted.midY)
 
             // 얼굴 범위에 이미지 추가하기
             let faceImage = UIImage(named: "pochaco_face_img")
@@ -152,12 +151,12 @@ extension RxFaceTrackingVC {
         let renderedImage = renderer.image { context in
             // 비디오 프레임을 렌더링 (비율을 유지하며 잘라내기)
             let aspectRatio = uiImage.size.width / uiImage.size.height
-            let targetWidth = previewLayer.bounds.width
+            let targetWidth = rect.width
             let targetHeight = targetWidth / aspectRatio
-            let yOffset = (previewLayer.bounds.height - targetHeight) / 2.0
+            let yOffset = (rect.height - targetHeight) / 2.0
             let targetRect = CGRect(x: 0, y: yOffset, width: targetWidth, height: targetHeight)
             uiImage.draw(in: targetRect)
-            
+    
             // previewLayer를 렌더링
             previewLayer.render(in: context.cgContext)
         }
@@ -170,7 +169,7 @@ extension RxFaceTrackingVC {
 
 // MARK: - @objc Function
 
-extension RxFaceTrackingVC {
+extension PochacoFilterVC {
     @objc private func takePictureButtonDidTap() {
         savePhoto()
     }
@@ -187,7 +186,7 @@ extension RxFaceTrackingVC {
 
 // MARK: - UI & Layout
 
-extension RxFaceTrackingVC {
+extension PochacoFilterVC {
     private func setUI() {
         view.backgroundColor = .white
     }
@@ -209,16 +208,12 @@ extension RxFaceTrackingVC {
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
-extension RxFaceTrackingVC: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension PochacoFilterVC: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }  // CMSampleBuffer에서 이미지 버퍼를 가져옴
         
         // VNDetectFaceLandmarksRequest: 얼굴 특징 감지
-        
-        /**
-         일반적으로 GCD에서 비동기적으로 실행되는 클로저 블록 내에서 self를 약한 참조(weak reference)로 캡처하는 것이 권장됩니다. 이는 강한 참조로 인한 순환 참조를 방지하고 메모리 누수를 방지하기 위한 것입니다.
-         **/
         
         let faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: { [weak self] (request: VNRequest, error: Error?) in
             guard let self = self else { return }  // self가 nil이면 이미 해제된 상태이므로 더 이상 작업을 수행하지 않음
