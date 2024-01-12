@@ -8,6 +8,8 @@
 import UIKit
 
 enum ImageLiterals {
+    static var jdmBackgroundImg: UIImage { .load(named: "jdm_background_img")}
+    static var jdmProfileImg: UIImage { .load(named: "jdm_profile_img")}
     static var pochacoFaceImg: UIImage { .load(named: "pochaco_face_img") }
     static var pochacoImg: UIImage { .load(named: "pochacoImg") }
 }

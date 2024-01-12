@@ -34,7 +34,7 @@ final class PochacoFilterVC: UIViewController {
         
     private var faceLayers: [CALayer] = []
     
-    private var currentSampleBuffer: CMSampleBuffer?
+    private var currentSampleBuffer: CMSampleBuffer?  
     
     // MARK: - UI Components
     
