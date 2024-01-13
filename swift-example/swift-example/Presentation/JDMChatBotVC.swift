@@ -41,11 +41,11 @@ final class JDMChatBotVC: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionViewLayoutLayout()
+        setLayout()
         setDelegate()
         setMessageInputBar()
         setUI()
-        self.messagesCollectionView.register(CustomMessageCell.self)
+        setRegister()
         firstToDefaultMessage()
     }
 }
@@ -53,26 +53,6 @@ final class JDMChatBotVC: MessagesViewController {
 // MARK: - Methods
 
 extension JDMChatBotVC {
-    private func setCollectionViewLayoutLayout() {
-        // 각 셀 설정
-        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
-            layout.setMessageOutgoingAvatarSize(.zero)
-            layout.setMessageIncomingAvatarSize(CGSize(width: 35, height: 35))
-            layout.setMessageIncomingAvatarPosition(.init(horizontal: .cellLeading, vertical: .messageBottom))
-            layout.setMessageOutgoingMessageTopLabelAlignment(LabelAlignment(textAlignment: .right, textInsets: .zero))
-            layout.setMessageIncomingMessageTopLabelAlignment(LabelAlignment(textAlignment: .left, textInsets: .zero))
-            layout.sectionHeadersPinToVisibleBounds = true
-            
-            // 1. 아이템의 크기 설정
-//                layout.itemSize = CGSize(width: messagesCollectionView.bounds.width - 20, height: 100)
-
-            // 2. 콘텐츠와 인셋 고려
-            let contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-            layout.sectionInset = contentInset
-            layout.minimumLineSpacing = 10
-        }
-    }
-    
     private func setDelegate() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -115,6 +95,10 @@ extension JDMChatBotVC {
                 item.imageView?.image = ImageLiterals.pochacoFaceImg
             })
           }
+    }
+    
+    private func setRegister() {
+        self.messagesCollectionView.register(CustomMessageCell.self)
     }
     
     private func firstToDefaultMessage() {
@@ -172,9 +156,20 @@ extension JDMChatBotVC {
     }
     
     private func setLayout() {
-        
-    }
+        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            layout.setMessageOutgoingAvatarSize(.zero)
+            layout.setMessageIncomingAvatarSize(CGSize(width: 35, height: 35))
+            layout.setMessageIncomingAvatarPosition(.init(horizontal: .cellLeading, vertical: .messageBottom))
+            layout.setMessageOutgoingMessageTopLabelAlignment(LabelAlignment(textAlignment: .right, textInsets: .zero))
+            layout.setMessageIncomingMessageTopLabelAlignment(LabelAlignment(textAlignment: .left, textInsets: .zero))
+            layout.sectionHeadersPinToVisibleBounds = true
+            let contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            layout.sectionInset = contentInset
+            layout.minimumLineSpacing = 10
+        }    }
 }
+
+// MARK: - MessagesDataSource
 
 extension JDMChatBotVC: MessagesDataSource {
     var currentSender: MessageKit.SenderType {
@@ -229,6 +224,8 @@ extension JDMChatBotVC: MessagesDataSource {
     }
 }
 
+// MARK: - MessagesLayoutDelegate
+
 extension JDMChatBotVC: MessagesLayoutDelegate {
     // 아래 여백
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
@@ -249,6 +246,8 @@ extension JDMChatBotVC: MessagesLayoutDelegate {
         return CGSize(width: 45, height: 45)
     }
 }
+
+// MARK: - MessagesDisplayDelegate
 
 extension JDMChatBotVC: MessagesDisplayDelegate {
     // 말풍선의 배경 색상
