@@ -41,6 +41,7 @@ final class JDMChatBotVC: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "정대만"
         setLayout()
         setDelegate()
         setMessageInputBar()
@@ -54,24 +55,23 @@ final class JDMChatBotVC: MessagesViewController {
 
 extension JDMChatBotVC {
     private func setDelegate() {
+        messageInputBar.delegate = self
+        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
-        scrollsToLastItemOnKeyboardBeginsEditing = true // default false
-        maintainPositionOnInputBarHeightChanged = true // default false
-        showMessageTimestampOnSwipeLeft = true // default false
     }
     
     private func setMessageInputBar() {
         inputBarType = .custom(messageInputBar)
-        messageInputBar.delegate = self
         messageInputBar.setRightStackViewWidthConstant(to: 36, animated: false)
 
         messageInputBar.isTranslucent = true
         messageInputBar.inputTextView.tintColor = .blue
 
         messageInputBar.topStackView.layer.borderWidth = 30
+        messageInputBar.topStackView.layer.cornerRadius = 10 // 적절한 값을 설정
+        messageInputBar.topStackView.layer.masksToBounds = true
 
         messageInputBar.inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 36)
         messageInputBar.inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 36)
@@ -79,10 +79,12 @@ extension JDMChatBotVC {
         messageInputBar.inputTextView.font = UIFont.systemFont(ofSize: 12)
         messageInputBar.inputTextView.placeholder = "메세지 보내기"
 
-        messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         messageInputBar.sendButton.setSize(CGSize(width: 45, height: 45), animated: false)
         messageInputBar.sendButton.image = ImageLiterals.pochacoFaceImg
         messageInputBar.sendButton.title = nil
+        
+        messageInputBar.layer.shadowPath = UIBezierPath(rect: messageInputBar.bounds).cgPath
+
         
         // This just adds some more flare
         messageInputBar.sendButton
@@ -103,7 +105,6 @@ extension JDMChatBotVC {
     
     private func firstToDefaultMessage() {
         let text = "여어~ 재영!! 잘지냈냐?"
-        
         insertToMessage(text: text)
     }
     
@@ -160,13 +161,17 @@ extension JDMChatBotVC {
             layout.setMessageOutgoingAvatarSize(.zero)
             layout.setMessageIncomingAvatarSize(CGSize(width: 35, height: 35))
             layout.setMessageIncomingAvatarPosition(.init(horizontal: .cellLeading, vertical: .messageBottom))
-            layout.setMessageOutgoingMessageTopLabelAlignment(LabelAlignment(textAlignment: .right, textInsets: .zero))
-            layout.setMessageIncomingMessageTopLabelAlignment(LabelAlignment(textAlignment: .left, textInsets: .zero))
+            layout.setMessageOutgoingCellBottomLabelAlignment(LabelAlignment(textAlignment: .right, textInsets: UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)))
             layout.sectionHeadersPinToVisibleBounds = true
             let contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             layout.sectionInset = contentInset
             layout.minimumLineSpacing = 10
-        }    }
+        }
+        
+        scrollsToLastItemOnKeyboardBeginsEditing = true // default false
+        maintainPositionOnInputBarHeightChanged = true // default false
+        showMessageTimestampOnSwipeLeft = true // default false
+    }
 }
 
 // MARK: - MessagesDataSource
@@ -205,16 +210,11 @@ extension JDMChatBotVC: MessagesDataSource {
     func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-
         let dateString = dateFormatter.string(from: message.sentDate)
-
+        
         return NSAttributedString(
             string: dateString,
-            attributes: [
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
-                NSAttributedString.Key.foregroundColor: UIColor.black
-            ]
-        )
+            attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.black])
     }
     
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
@@ -229,16 +229,21 @@ extension JDMChatBotVC: MessagesDataSource {
 extension JDMChatBotVC: MessagesLayoutDelegate {
     // 아래 여백
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 10, height: 0)
+        return CGSize(width: 20, height: 0)
     }
     
     // 말풍선 위 이름 나오는 곳의 height
     func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 20
+        return isFromCurrentSender(message: message) ? 0 : 20
     }
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 10
+        return isFromCurrentSender(message: message) ? 5 : 15
+    }
+    
+    // 메세지 전송 시간
+    func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
     }
     
     // 타이핑 인디케이터의 크기 조정
@@ -266,15 +271,27 @@ extension JDMChatBotVC: MessagesDisplayDelegate {
     }
     
     // 말풍선의 꼬리 모양 방향
-    func messageStyle(for message: MessageType, at _: IndexPath, in _: MessagesCollectionView) -> MessageStyle {
-        let tail: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in _: MessagesCollectionView) -> MessageStyle {
+        let tail: MessageStyle.TailCorner
+                
+        if isFromCurrentSender(message: message) {
+            tail = .bottomRight
+        } else {
+            // Check if the current message has the same time as the previous one
+            let isSameTimeAsPrevious = indexPath.section > 0 &&
+                Calendar.current.isDate(messages[indexPath.section - 1].sentDate, inSameDayAs: message.sentDate)
+            
+            // Set the tail based on whether it's the same time as the previous message
+            tail = isSameTimeAsPrevious ? .bottomRight : .bottomLeft
+        }
+        
         return .bubbleTailOutline(UIColor(hex: "#8B0000"), tail, .pointedEdge)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
             // 첫 번째 섹션에 대한 inset 설정
-            return UIEdgeInsets(top: 150, left: 8, bottom: 0, right: 8)
+            return UIEdgeInsets(top: 30, left: 8, bottom: 0, right: 8)
         } else {
             // 나머지 섹션에 대한 inset 설정
             return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
@@ -304,6 +321,7 @@ extension JDMChatBotVC: InputBarAccessoryViewDelegate {
         
         insertNewMessage(message)
         print(text)
+        messagesCollectionView.reloadData()
 
         messageInputBar.inputTextView.text = String()
     }
