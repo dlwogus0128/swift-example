@@ -31,6 +31,8 @@
 		23D6C8D72B43E8F100B96C95 /* LocalizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C8D62B43E8F100B96C95 /* LocalizationVC.swift */; };
 		23D6C8D92B43E94900B96C95 /* LanguageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C8D82B43E94900B96C95 /* LanguageLiterals.swift */; };
 		23D6C8DD2B43E97E00B96C95 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C8DC2B43E97E00B96C95 /* LanguageManager.swift */; };
+		23FCD0612B565DC0008F8A27 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 23FCD0602B565DC0008F8A27 /* OpenAI */; };
+		23FCD0682B5663EA008F8A27 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FCD0672B5663EA008F8A27 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,7 @@
 		23D6C8D62B43E8F100B96C95 /* LocalizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationVC.swift; sourceTree = "<group>"; };
 		23D6C8D82B43E94900B96C95 /* LanguageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLiterals.swift; sourceTree = "<group>"; };
 		23D6C8DC2B43E97E00B96C95 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		23FCD0672B5663EA008F8A27 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 				231C18052B44D8F800EE9BDD /* RxSwift in Frameworks */,
 				231C18032B44D8F800EE9BDD /* RxCocoa in Frameworks */,
 				231C18112B44E3D200EE9BDD /* Then in Frameworks */,
+				23FCD0612B565DC0008F8A27 /* OpenAI in Frameworks */,
 				234A63092B4FAC06000F9805 /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +193,7 @@
 				23949B5A2B45007700A3D10B /* UIView+.swift */,
 				231822D12B466DDE00D2CF04 /* Toast.swift */,
 				231822D32B466E5000D2CF04 /* CalculateTopInset.swift */,
+				23FCD0672B5663EA008F8A27 /* Config.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				231C180D2B44E3C600EE9BDD /* SnapKit */,
 				231C18102B44E3D200EE9BDD /* Then */,
 				234A63082B4FAC06000F9805 /* MessageKit */,
+				23FCD0602B565DC0008F8A27 /* OpenAI */,
 			);
 			productName = "swift-example";
 			productReference = 23D6C8A42B43D5B600B96C95 /* swift-example.app */;
@@ -258,6 +264,7 @@
 				231C180C2B44E3C600EE9BDD /* XCRemoteSwiftPackageReference "SnapKit" */,
 				231C180F2B44E3D200EE9BDD /* XCRemoteSwiftPackageReference "Then" */,
 				234A63072B4FAC06000F9805 /* XCRemoteSwiftPackageReference "MessageKit" */,
+				23FCD05F2B565DC0008F8A27 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 23D6C8A52B43D5B600B96C95 /* Products */;
 			projectDirPath = "";
@@ -300,6 +307,7 @@
 				234A63132B4FAF71000F9805 /* MessageModel.swift in Sources */,
 				237096BD2B4624AD00A245A4 /* ImageLiterals.swift in Sources */,
 				231822D22B466DDE00D2CF04 /* Toast.swift in Sources */,
+				23FCD0682B5663EA008F8A27 /* Config.swift in Sources */,
 				23D6C8A82B43D5B600B96C95 /* AppDelegate.swift in Sources */,
 				23D6C8AA2B43D5B600B96C95 /* SceneDelegate.swift in Sources */,
 			);
@@ -558,6 +566,14 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		23FCD05F2B565DC0008F8A27 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -585,6 +601,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 234A63072B4FAC06000F9805 /* XCRemoteSwiftPackageReference "MessageKit" */;
 			productName = MessageKit;
+		};
+		23FCD0602B565DC0008F8A27 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23FCD05F2B565DC0008F8A27 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

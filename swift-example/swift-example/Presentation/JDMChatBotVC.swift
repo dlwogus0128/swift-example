@@ -11,6 +11,7 @@ import SnapKit
 import Then
 import MessageKit
 import InputBarAccessoryView
+import OpenAI
 
 class CustomMessageCell: MessageContentCell {
     override init(frame: CGRect) {
@@ -32,14 +33,18 @@ final class JDMChatBotVC: MessagesViewController {
     private let meSender = Sender(senderId: "me", displayName: "나")
     
     private let layout = MessagesCollectionViewFlowLayout()
-    
+        
+    private let openAI = OpenAI(apiToken: Config.openAIKey)
+    let query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: "너는 누구야?")])
+
+
     // MARK: - UI Components
     
     private lazy var messageCollectionView = MessagesCollectionView(frame: .zero, collectionViewLayout: self.layout)
 
     // MARK: - View Life Cycle
     
-    override func viewDidLoad() {
+    override func viewDidLoad()  {
         super.viewDidLoad()
         navigationItem.title = "정대만"
         setLayout()
@@ -48,12 +53,35 @@ final class JDMChatBotVC: MessagesViewController {
         setUI()
         setRegister()
         firstToDefaultMessage()
+        
+        // Assuming this function is within an asynchronous context (marked with `async`)
+        // Call this function to send a message to the Chat API and handle the result
+        sendChatMessage(message: "너는 누구니?") { result in
+            print(result)
+        }
     }
 }
 
 // MARK: - Methods
 
 extension JDMChatBotVC {
+    func sendChatMessage(message: String, completion: @escaping (Result<String, Error>) -> Void) {
+            let query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: message)])
+            
+            // Call the Chat API (does not execute asynchronously in this example)
+            openAI.chats(query: query) { result in
+                // Process the result through the callback
+                switch result {
+                case .success(let response):
+                    // Handle the Chat API response
+                    print("Chat completion result: \(response)")
+                case .failure(let error):
+                    // Handle the error if one occurs
+                    print("Error during chat completion: \(error)")
+                }
+            }
+        }
+    
     private func setDelegate() {
         messageInputBar.delegate = self
         
@@ -63,24 +91,35 @@ extension JDMChatBotVC {
     }
     
     private func setMessageInputBar() {
-        inputBarType = .custom(messageInputBar)
-        messageInputBar.setRightStackViewWidthConstant(to: 36, animated: false)
-
-        messageInputBar.isTranslucent = true
-        messageInputBar.inputTextView.tintColor = .blue
-
-        messageInputBar.topStackView.layer.borderWidth = 30
-        messageInputBar.topStackView.layer.cornerRadius = 10 // 적절한 값을 설정
-        messageInputBar.topStackView.layer.masksToBounds = true
-
+//        inputBarType = .custom(messageInputBar)
+        
         messageInputBar.inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 36)
         messageInputBar.inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 36)
-
-        messageInputBar.inputTextView.font = UIFont.systemFont(ofSize: 12)
+//        messageInputBar.inputTextView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         messageInputBar.inputTextView.placeholder = "메세지 보내기"
+        messageInputBar.inputTextView.font = UIFont.systemFont(ofSize: 12)
 
-        messageInputBar.sendButton.setSize(CGSize(width: 45, height: 45), animated: false)
-        messageInputBar.sendButton.image = ImageLiterals.pochacoFaceImg
+        messageInputBar.topStackView.layer.masksToBounds = true
+        messageInputBar.setRightStackViewWidthConstant(to: 36, animated: false)
+
+        
+        messageInputBar.setStackViewItems([messageInputBar.sendButton, InputBarButtonItem.fixedSpace(2)],
+                                          forStack: .right, animated: false)
+
+        messageInputBar.sendButton.image = ImageLiterals.basketballIc
+
+//        messageInputBar.inputTextView.tintColor = .blue
+
+
+        messageInputBar.separatorLine.isHidden = true
+        messageInputBar.isTranslucent = true
+
+        messageInputBar.layer.cornerRadius = 10 // 적절한 값을 사용하세요
+        messageInputBar.layer.masksToBounds = true
+        messageInputBar.layer.shadowPath = UIBezierPath(rect: messageInputBar.bounds).cgPath
+
+
+        messageInputBar.sendButton.setSize(CGSize(width: 25, height: 25), animated: false)
         messageInputBar.sendButton.title = nil
         
         messageInputBar.layer.shadowPath = UIBezierPath(rect: messageInputBar.bounds).cgPath
@@ -90,11 +129,11 @@ extension JDMChatBotVC {
         messageInputBar.sendButton
           .onEnabled { item in
             UIView.animate(withDuration: 0.3, animations: {
-                item.imageView?.image = ImageLiterals.pochacoFaceImg
+                item.imageView?.image = ImageLiterals.basketballIc
             })
           }.onDisabled { item in
             UIView.animate(withDuration: 0.3, animations: {
-                item.imageView?.image = ImageLiterals.pochacoFaceImg
+                item.imageView?.image = ImageLiterals.basketballIc
             })
           }
     }
