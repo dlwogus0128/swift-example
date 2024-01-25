@@ -35,8 +35,8 @@ final class JDMChatBotVC: MessagesViewController {
     private let layout = MessagesCollectionViewFlowLayout()
         
     private let openAI = OpenAI(apiToken: Config.openAIKey)
-    let query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: "너는 누구야?")])
-
+    
+    private let systemScript: String = "[아직 시간이 있어!! 우린 이길 수 있다구!! 이 슈퍼스타 정대만이 있는 한 무석중은 반드시 이긴다!1학년 10반 정대만!! 무석중 출신!! 176cm 63kg 포지션은 아무거나 다 합니다! 그리고...목표는 북산고 전국제패!! 전국 제일이 되는 것!!성공하고 말테다! OK , 힘내! 으랏차!!! 들어가야해! 무조건! 이 녀석 머리는 엄청 단단해서 말이야. 너, 바보구나! 난 말야... 그 소중한 걸 부수려고 온 거란 말이다. 이쪽이 체육관이란 것! 지금부터 농구 좀 하러 간다...! 아냐! 링 뒤쪽이야. 뒤! 링 뒤쪽을 보면서 던지는 거야. 그래... MVP를 따냈을 때도 그랬다... 이런 힘들 상황에서야 말로 난 더욱 불타오르는 녀석이었다...!! 어서 시합을 계속하자구!! 내 리듬이 깨지기 전에!!] 제공한 대화 내용을 참고해서 유사한 어투인 반말체, 일본어 번역체로 대답해줘. 네 이름은 정대만이고, 흥분과 도전을 좋아하며 열정적이고 독창적이야. 무석중학교를 졸업했고 북산 고등학교에서 농구부를 하고 있어. 목표는 북산고 전국제패이고 주저하거나 망설이지 않아. 답변은 무조건 20자 이내로 짧게 부탁해."
 
     // MARK: - UI Components
     
@@ -53,35 +53,12 @@ final class JDMChatBotVC: MessagesViewController {
         setUI()
         setRegister()
         firstToDefaultMessage()
-        
-        // Assuming this function is within an asynchronous context (marked with `async`)
-        // Call this function to send a message to the Chat API and handle the result
-        sendChatMessage(message: "너는 누구니?") { result in
-            print(result)
-        }
     }
 }
 
 // MARK: - Methods
 
 extension JDMChatBotVC {
-    func sendChatMessage(message: String, completion: @escaping (Result<String, Error>) -> Void) {
-            let query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .user, content: message)])
-            
-            // Call the Chat API (does not execute asynchronously in this example)
-            openAI.chats(query: query) { result in
-                // Process the result through the callback
-                switch result {
-                case .success(let response):
-                    // Handle the Chat API response
-                    print("Chat completion result: \(response)")
-                case .failure(let error):
-                    // Handle the error if one occurs
-                    print("Error during chat completion: \(error)")
-                }
-            }
-        }
-    
     private func setDelegate() {
         messageInputBar.delegate = self
         
@@ -91,11 +68,8 @@ extension JDMChatBotVC {
     }
     
     private func setMessageInputBar() {
-//        inputBarType = .custom(messageInputBar)
-        
         messageInputBar.inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 36)
         messageInputBar.inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 36)
-//        messageInputBar.inputTextView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         messageInputBar.inputTextView.placeholder = "메세지 보내기"
         messageInputBar.inputTextView.font = UIFont.systemFont(ofSize: 12)
 
@@ -108,24 +82,18 @@ extension JDMChatBotVC {
 
         messageInputBar.sendButton.image = ImageLiterals.basketballIc
 
-//        messageInputBar.inputTextView.tintColor = .blue
-
-
         messageInputBar.separatorLine.isHidden = true
         messageInputBar.isTranslucent = true
 
-        messageInputBar.layer.cornerRadius = 10 // 적절한 값을 사용하세요
+        messageInputBar.layer.cornerRadius = 10
         messageInputBar.layer.masksToBounds = true
         messageInputBar.layer.shadowPath = UIBezierPath(rect: messageInputBar.bounds).cgPath
-
 
         messageInputBar.sendButton.setSize(CGSize(width: 25, height: 25), animated: false)
         messageInputBar.sendButton.title = nil
         
         messageInputBar.layer.shadowPath = UIBezierPath(rect: messageInputBar.bounds).cgPath
 
-        
-        // This just adds some more flare
         messageInputBar.sendButton
           .onEnabled { item in
             UIView.animate(withDuration: 0.3, animations: {
@@ -148,7 +116,7 @@ extension JDMChatBotVC {
     }
     
     private func insertToMessage(text: String) {
-        // 메시지를 만들고 추가하는 로직을 수행합니다.
+        // 메시지를 만들고 추가
         let attributedText = NSAttributedString(
             string: text,
             attributes: [
@@ -170,11 +138,13 @@ extension JDMChatBotVC {
         let indexPath = IndexPath(item: 0, section: messages.count - 1)
         
         // Perform batch updates to insert the new section
-        self.messagesCollectionView.performBatchUpdates({
-            self.messagesCollectionView.insertSections(IndexSet(integer: indexPath.section))
-        }) { (_) in
-            // Scroll to the last item with animation
-            self.messagesCollectionView.scrollToLastItem(animated: true)
+        DispatchQueue.main.async {
+            self.messagesCollectionView.performBatchUpdates({
+                self.messagesCollectionView.insertSections(IndexSet(integer: indexPath.section))
+            }) { (_) in
+                // Scroll to the last item with animation
+                self.messagesCollectionView.scrollToLastItem(animated: true)
+            }
         }
     }
     
@@ -277,7 +247,11 @@ extension JDMChatBotVC: MessagesLayoutDelegate {
     }
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return isFromCurrentSender(message: message) ? 5 : 15
+        if indexPath.section == 0 {
+            return 15
+        } else {
+            return 0
+        }
     }
     
     // 메세지 전송 시간
@@ -311,19 +285,7 @@ extension JDMChatBotVC: MessagesDisplayDelegate {
     
     // 말풍선의 꼬리 모양 방향
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in _: MessagesCollectionView) -> MessageStyle {
-        let tail: MessageStyle.TailCorner
-                
-        if isFromCurrentSender(message: message) {
-            tail = .bottomRight
-        } else {
-            // Check if the current message has the same time as the previous one
-            let isSameTimeAsPrevious = indexPath.section > 0 &&
-                Calendar.current.isDate(messages[indexPath.section - 1].sentDate, inSameDayAs: message.sentDate)
-            
-            // Set the tail based on whether it's the same time as the previous message
-            tail = isSameTimeAsPrevious ? .bottomRight : .bottomLeft
-        }
-        
+        let tail: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
         return .bubbleTailOutline(UIColor(hex: "#8B0000"), tail, .pointedEdge)
     }
     
@@ -344,7 +306,6 @@ extension JDMChatBotVC: MessagesDisplayDelegate {
 }
 
 // MARK: - InputBarAccessoryViewDelegate
-
 extension JDMChatBotVC: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         // 메시지를 만들고 추가하는 로직을 수행합니다.
@@ -359,9 +320,33 @@ extension JDMChatBotVC: InputBarAccessoryViewDelegate {
         let message = MessageModel(messageId: "me", kind: .attributedText(attributedText), sender: currentSender, sentDate: Date())
         
         insertNewMessage(message)
-        print(text)
-        messagesCollectionView.reloadData()
-
+        sendChatMessage(message: text)
         messageInputBar.inputTextView.text = String()
+    }
+}
+
+// MARK: - ChatGPT Network
+
+extension JDMChatBotVC {
+    private func sendChatMessage(message: String) {
+        let query = ChatQuery(model: .gpt3_5Turbo, messages: [
+            Chat(role: .system, content: self.systemScript),
+            Chat(role: .user, content: message)
+        ])
+        
+        openAI.chats(query: query) { result in
+            // Process the result through the callback
+            switch result {
+            case .success(let response):
+                if let textResult = response.choices.first?.message.content {
+                    print("Chat completion result: \(textResult)")
+                    self.insertToMessage(text: textResult)
+                } else {
+                    print("No text result found.")
+                }
+            case .failure(let error):
+                print("Error during chat completion: \(error)")
+            }
+        }
     }
 }
