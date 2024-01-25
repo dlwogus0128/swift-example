@@ -493,3 +493,137 @@ removeLoop: while true {
     numbers.removeFirst()
 }
 }
+
+// MARK: - 7장. 함수
+
+// 기본 형태의 함수
+func hello(name: String) -> String {
+    return "Hello \(name)!"
+}
+
+let helloJenny: String = hello(name: "Jenny")
+print(helloJenny)
+
+func introduce(name: String) -> String {
+    "제 이름은 " + name + "입니다."
+}
+
+let introcudeJenny: String = introduce(name: "Jenny")
+print(introcudeJenny)
+
+// 전달인자 레이블이 없는 함수
+
+func sayHello(_ name: String, _ times: Int) -> String {
+    var result: String = ""
+    
+    for _ in 0..<times {
+        result += "Hello \(name)!" + " "
+    }
+    
+    return result
+}
+
+print(sayHello("종명", 2))
+
+// inout 매개변수의 활용
+
+func nonReferenceParameter(_ arr: [Int]) {
+    var copiedArr: [Int] = arr
+    copiedArr[1] = 1
+}
+
+func referenceParameter(_ arr: inout [Int]) {
+    arr[1] = 1
+}
+
+nonReferenceParameter(numbers)
+print(numbers[1])
+
+referenceParameter(&numbers)
+print(numbers[1])
+
+// 반환값이 없는 함수
+
+func sayGoodBye() -> Void {
+    print("안녕~~")
+}
+
+sayGoodBye()
+
+// 함수 타입의 활용
+// 함수를 전달인자로 받을 수도, 반환값으로 돌려줄 수도 있음
+
+typealias CalculateTwoInts = (Int, Int) -> Int
+
+func addTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a * b
+}
+
+var mathFunction: CalculateTwoInts = addTwoInts
+print(mathFunction(2, 5))
+
+mathFunction = multiplyTwoInts
+print(mathFunction(2, 5))
+
+// 전달인자로 함수를 전달받는 함수
+
+func printMathResult(_ mathFunction: CalculateTwoInts, _ a: Int, _ b: Int) {
+    print("Result: \(mathFunction(a, b))")
+}
+
+printMathResult(addTwoInts, 3, 5)
+
+// 중첩 함수의 사용: 재귀함수 st??
+
+typealias MoveFunc = (Int) -> Int
+
+func functionForMove(_ shouldGoLeft: Bool) -> MoveFunc {
+    func goRight(_ currentPosition: Int) -> Int {
+        return currentPosition + 1
+    }
+    
+    func goLeft(_ currentPosition: Int) -> Int {
+        return currentPosition - 1
+    }
+    
+    return shouldGoLeft ? goLeft : goRight
+}
+
+var position: Int = -4
+
+// 종료되지 않는 함수
+// 정상적으로 끝나지 않았다는 뜻으로, 비반환 메서드라고도 부름
+// 대표적인 예로는 fatalError 함수
+// Never를 반환 타입으로 명시해주면 됨
+
+func crashAndBurn() -> Never {
+    fatalError("Something very, very bad happened")
+}
+
+func someFunction(isAllIsWell: Bool) {
+    guard isAllIsWell else {
+        print("마을에 도둑이 들었습니다!")
+        crashAndBurn()
+    }
+    print("All is well")
+}
+
+someFunction(isAllIsWell: true)
+//someFunction(isAllIsWell: false)
+
+// 반환 값을 무시할 수 있는 함수
+// 가끔 함수의 반환값이 필요 없을 수도 잇자나 ?
+// 일반적으로 반환값을 사용하지 않으면 컴파일러가 경고를 보내는데,
+// @discardableResult를 선언하면 경고가 안 뜸 ㅋ
+
+@discardableResult
+func say(_ something: String) -> String {
+    print(something)
+    return something
+}
+
+say("hello")
