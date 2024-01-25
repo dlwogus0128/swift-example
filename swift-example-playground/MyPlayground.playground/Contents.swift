@@ -627,3 +627,171 @@ func say(_ something: String) -> String {
 }
 
 say("hello")
+
+// MARK: - 8장. 옵셔널
+
+// switch를 통한 옵셔널 값의 확인
+
+func checkOptionalValue(value optionalValue: Any?) {
+    switch optionalValue {
+    case .none:
+        print("This Optional variable is nil")
+    case .some(let value):
+        print("Value is \(value)")
+    }
+}
+
+var myName: String? = "yagom"
+checkOptionalValue(value: myName)
+
+myName = nil
+checkOptionalValue(value: myName)
+
+// 옵셔널 추출 방법
+// 첫 번째는 강제 추출 (!를 통해서 추출)
+// 두 번째는 옵셔널 바인딩 (if 또는 while 구문과 결합해서 사용)
+
+var mongName: String? = "몽이"
+
+if let myDogName = mongName {
+    print("My dog's name is \(myDogName)")
+} else {
+    print("myDogName == nil")
+}
+
+// MARK: - 9장. 구조체와 클래스
+
+// 구조체와 클래스의 차이가 무어냐?!
+// 바로바로.. 구조체는 값 타입이고
+// 클래스는 참조 타입이라는 것 ㅋ
+
+// MARK: - 10장. 프로퍼티와 메서드
+
+// 프로퍼티 세 가지!!
+// 저장 프로퍼티, 연산 프로퍼티, 타입 프로퍼티
+
+// 저장 프로퍼티: 상수, 변수
+
+// 연산 프로퍼티: 실제 값을 저장하는 게 아닌, 특정 상태에 따른 값을 연산
+// 접근자 (getter): 값을 연산해서 돌려줌
+// 설정자 (setter): 은닉화된 내부의 프로퍼티 값을 간접적으로 설정
+
+struct CoordinatePoint {
+    var x: Int
+    var y: Int
+    
+    // 대칭 좌표
+    var oppositePoint: CoordinatePoint {
+        get {
+            return CoordinatePoint(x: -x, y: -y)
+        }
+        
+        set(opposite) {
+            x = -opposite.x
+            y = -opposite.y
+        }
+    }
+}
+
+let yagomPoint: CoordinatePoint = CoordinatePoint(x: 10, y: 5)
+
+class Position {
+    var point: CoordinatePoint
+    let name: String
+    
+    // 프로퍼티의 기본값을 지정해주지 않으면 이니셜라이저를 정의해주어야 함
+    init(currentPoiont: CoordinatePoint, name: String) {
+        self.point = currentPoiont
+        self.name = name
+    }
+}
+
+let yagomPosition: Position = Position(currentPoiont: yagomPoint, name: "야곰")
+
+// 지연 저장 프로퍼티: lazy를 사용해서 그 값을 호출헤야만 생성하게 함
+
+// 프로퍼티 감시자: 프로퍼티의 값이 새로 할당될 때마다 호출 (변경되는 값이 현재와 같더라도)
+// 프로퍼티 값이 변경되기 직전에 호출: willSet
+// 프로퍼티 값이 변경된 직후에 호출: didSet
+
+class Account {
+    var credit: Int = 0 {
+        willSet {
+            print("잔액이 \(credit)원에서 \(newValue)원으로 변경될 예정입니다.")
+        }
+        
+        didSet {
+            print("잔액이 \(oldValue)원에서 \(credit)원으로 변경되었습니다.")
+        }
+    }
+}
+
+let myAccount: Account = Account()
+myAccount.credit = 1000
+
+// 타입 프로퍼티: 각각의 인스턴스가 아닌 타입 자체에 속하는 프로퍼티
+// 그냥 모든 인스턴스에서 공용으로 !! 접근하고 변경할 수 있는 것 (static)
+
+class AClass {
+    static var typeProperty: Int = 0
+    
+    var instanceProperty: Int = 0 {
+        didSet {
+            Self.typeProperty = instanceProperty + 100
+        }
+    }
+    
+    static var typeComputedProperty: Int {
+        get {
+            return typeProperty
+        }
+        
+        set {
+            typeProperty = newValue
+        }
+    }
+}
+
+// 키 경로
+// 값을 바로 꺼내오는 것이 아닌, 프로퍼티의 위치만 참조
+
+print(type(of: \BasicInformation.name))
+
+// mutating: 해당 메서드가 인스턴스 내부의 값을 변경한다는 것을 명시
+
+struct LevelStruct {
+    var level: Int = 0 {
+        didSet {
+            print("Level \(level)")
+        }
+    }
+    
+    mutating func levelUp() {
+        print("Level Up!")
+        level += 1
+    }
+    
+    mutating func levelDown() {
+        print("Level Down")
+        level -= 1
+        if level < 0 {
+            reset()
+        }
+    }
+    
+    mutating func jumpLevel(to: Int) {
+        print("Jump to \(to)")
+        level = to
+    }
+    
+    mutating func reset() {
+        print("Reset!")
+        level = 0
+    }
+}
+
+var levelStructInstance: LevelStruct = LevelStruct()
+levelStructInstance.levelUp()
+levelStructInstance.levelDown()
+levelStructInstance.jumpLevel(to: 3)
+levelStructInstance.reset()
