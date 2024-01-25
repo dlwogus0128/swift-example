@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 // MARK: - 2장. 스위프트 처음 시작하기
 
@@ -205,4 +206,290 @@ if myCondition >= yourCondition {
     print("제 상태가 더 좋군요")
 } else {
     print("당신의 상태가 더 좋아요")
+}
+
+// MARK: - 5장. 연산자
+
+// 산술 연산자
+
+let number: Double = 5.0
+var operatorResult: Double = number.truncatingRemainder(dividingBy: 1.5)
+operatorResult = 12.truncatingRemainder(dividingBy: 2.5)
+
+// 삼항 조건 연산자
+
+var valueA: Int = 3
+var valueB: Int = 5
+var biggerValue: Int = valueA > valueB ? valueA : valueB
+
+valueA = 0
+valueB = -3
+biggerValue = valueA > valueB ? valueA : valueB
+
+var stringA: String = ""
+var stringB: String = "String"
+var resultValue: Double = stringA.isEmpty ? 1.0 : 0.0
+resultValue = stringB.isEmpty ? 1.0 : 0.0
+
+// 오버플로 연산자
+// 기존 프로그래밍 언어에서 오버플로 가능 연산을 따로 로직을 설계해야 했던 것에 비해
+// 스위프트에서는 기본 연산자를 통해 따로 처리 없이 이를 가능케 함
+
+var unsignedInteger8: UInt8 = 0
+let underflowedValue: UInt8 = unsignedInteger8 &- 1     // 255로 출력
+
+// 사용자 정의 연산자
+// 스위프트에서는 사용자의 입맛대로 연산자를 만들고 역할을 부여할 수 있음
+
+
+// 전위 연산자
+prefix operator **
+
+prefix func ** (value: Int) -> Int {
+    return value * value
+}
+
+let minusFive: Int = -5
+let sqrtMinusFive: Int = **minusFive
+
+// 후위 연산자
+postfix operator **
+
+postfix func ** (value: Int) -> Int {
+    return value + 10
+}
+
+let sqrtFivePlusTen: Int = **minusFive**
+print(sqrtFivePlusTen)
+
+// 중위 연산자
+// precedencegroup으로 연산자 우선 순위를 정해줄 수 있음
+
+infix operator ** : MultiplicationPrecedence
+
+func ** (lhs: String, rhs: String) -> Bool {
+    return lhs.contains(rhs)
+}
+
+let helloYagom: String = "Hello jaehyun"
+let jaehyun: String = "jaehyun"
+let isContainsYagom: Bool = helloYagom ** jaehyun
+
+// 클래스 및 구조체의 비교 연산자 구현
+
+class Car {
+    var modelYear: Int?
+    var modelName: String?
+}
+
+struct SmartPhone {
+    var company: String?
+    var model: String?
+}
+
+func == (lhs: Car, rhs: Car) -> Bool {
+    return lhs.modelName == rhs.modelName
+}
+
+func == (lhs: SmartPhone, rhs: SmartPhone) -> Bool {
+    return lhs.model == rhs.model
+}
+
+let myCar = Car()
+myCar.modelName = "S"
+
+let yourCar = Car()
+yourCar.modelName = "S"
+
+var myPhone = SmartPhone()
+myPhone.model = "SE"
+
+var yourPhone = SmartPhone()
+yourPhone.model = "6"
+
+print(myCar == yourCar)
+print(myPhone == yourPhone)
+
+// MARK: - 6장. 흐름 제어
+
+// if 구문
+
+let first: Int = 5
+let second: Int = 7
+
+if first > second {
+    print("first > second")
+} else if first < second {
+    print("first < second")
+} else {
+    print("first == second")
+}
+
+var biggerValueIf: Int = 0
+
+if first > second {
+    biggerValueIf = first
+} else if first == second {
+    biggerValueIf = second
+} else if first < second {
+    biggerValueIf = second
+}   // 마지막 else 생략 가능
+
+print(biggerValueIf)
+
+// switch 구문
+
+let integerValue: Int = 5
+
+switch integerValue {
+case 0:
+    print("Value == zero")
+case 1...10:    // case문에 범위를 넣을 수도 있음 (!!)
+    print("Value == 1~10")
+    fallthrough
+case Int.min..<0, 101..<Int.max:
+    print("Value < 0 or Value > 100")
+    break
+default:
+    print("10 < value <= 100")
+}
+
+let stringValue: String = "Liam Neeson"
+
+switch stringValue {
+case "yagom":
+    print("He is yagom")
+case "Jay":
+    print("He is Jay")
+case "Jenny", "Joker", "Nova":
+    print("He or She is \(stringValue)")
+default:
+    print("\(stringValue) said 'I don't know who you are'")
+}
+
+// 튜플 switch case 구성
+
+typealias NameAge = (name: String, age: Int)
+
+let tupleValue: NameAge = ("yagom", 99)
+
+switch tupleValue {
+case ("yagom", 99):
+    print("정확히 맞췄습니다!")
+case ("yagom", _):
+    print("이름만 맞았습니다. 나이는 \(tupleValue.age) 입니다.")
+case (_, 99):
+    print("나이만 맞았습니다. 이름은 \(tupleValue.name) 입니다.")
+default:
+    print("누굴 찾나요?")
+}
+
+// where를 사용하여 switch case 확장
+
+let 직급: String = "사원"
+let 연차: Int = 1
+let 인턴인가: Bool = false
+
+switch 직급 {
+case "사원" where 인턴인가 == true:
+    print("인턴입니다.")
+case "사원" where 연차 < 2 && 인턴인가 == false:
+    print("신입사원입니다.")
+case "사원" where 연차 > 5:
+    print("연식 좀 된 사원입니다.")
+case "사원":
+    print("사원입니다.")
+case "대리":
+    print("대리입니다.")
+default:
+    print("사장입니까?")
+}
+
+enum Menu {
+    case chicken
+    case pizza
+    case hamburger
+}
+
+let lunchMenu: Menu = .chicken
+
+switch lunchMenu {
+case .chicken:
+    print("바ㄴ반무많이")
+case .pizza:
+    print("핫소스 많이 주세요")
+case .hamburger:
+    print("햄버거 맛있겟다")
+@unknown case _:    // default와 같은 역할이지만, case가 추가될 것을 고려한 와일드카드, unknown 속성을 이용해 논리적 오류를 방지
+    print("오늘 메뉴가 뭐죠?")
+}
+
+// for-in 구문
+
+for i in 0...2 {
+    print(i)
+}
+
+for i in 0...5 {
+    if i.isMultiple(of: 2) {
+        print(i)
+        continue
+    }
+    
+    print("\(i) == 홀수")
+}
+
+let helloSwift: String = "Hello Swift!"
+
+for char in helloSwift {
+    print(char)
+}
+
+var forInResult: Int = 1
+
+// 시퀀스에 해당하는 값이 필요가 없다면 와일드카드를 써도 가능
+
+for _ in 1...3 {
+    forInResult *= 10
+}
+
+print(forInResult)
+
+var friends: [String: Int] = ["김종명": 26, "노수인": 25, "심재민": 25]
+
+for tuple in friends {
+    print(tuple)
+}
+
+// while 반복 구문의 활용
+
+while names.isEmpty == false {
+    print("Good bye \(names.removeFirst())")
+}
+
+var numbers: [Int] = [3, 2, 23423, 12312]
+
+numbersLoop: for num in numbers {
+    if num > 5 || num < 1 {
+        continue numbersLoop
+    }
+    
+    var count: Int = 0
+    
+printLoop: while true {
+    print(num)
+    count += 1
+
+    if count == num{
+        break printLoop
+    }
+}
+    
+removeLoop: while true {
+    if numbers.first != num {
+        break numbersLoop
+    }
+    
+    numbers.removeFirst()
+}
 }
