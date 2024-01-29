@@ -11,6 +11,10 @@
 		23975D222B67446D00F73D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D212B67446D00F73D87 /* ContentView.swift */; };
 		23975D242B67446E00F73D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D232B67446E00F73D87 /* Assets.xcassets */; };
 		23975D282B67446E00F73D87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D272B67446E00F73D87 /* Preview Assets.xcassets */; };
+		23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D2E2B675F9B00F73D87 /* PracticeStackView.swift */; };
+		23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D302B67688F00F73D87 /* PracticeStatePropertyView.swift */; };
+		23975D332B676C1D00F73D87 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D322B676C1D00F73D87 /* DemoData.swift */; };
+		23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D342B676F2500F73D87 /* SpeedControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		23975D232B67446E00F73D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23975D252B67446E00F73D87 /* swiftui_example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = swiftui_example.entitlements; sourceTree = "<group>"; };
 		23975D272B67446E00F73D87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		23975D2E2B675F9B00F73D87 /* PracticeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeStackView.swift; sourceTree = "<group>"; };
+		23975D302B67688F00F73D87 /* PracticeStatePropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeStatePropertyView.swift; sourceTree = "<group>"; };
+		23975D322B676C1D00F73D87 /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		23975D342B676F2500F73D87 /* SpeedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +60,8 @@
 		23975D1E2B67446D00F73D87 /* swiftui-example */ = {
 			isa = PBXGroup;
 			children = (
-				23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */,
-				23975D212B67446D00F73D87 /* ContentView.swift */,
+				23975D362B6770A000F73D87 /* practice-base */,
+				23975D372B6770D600F73D87 /* practice-demo-proj */,
 				23975D232B67446E00F73D87 /* Assets.xcassets */,
 				23975D252B67446E00F73D87 /* swiftui_example.entitlements */,
 				23975D262B67446E00F73D87 /* Preview Content */,
@@ -67,6 +75,26 @@
 				23975D272B67446E00F73D87 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		23975D362B6770A000F73D87 /* practice-base */ = {
+			isa = PBXGroup;
+			children = (
+				23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */,
+				23975D212B67446D00F73D87 /* ContentView.swift */,
+				23975D2E2B675F9B00F73D87 /* PracticeStackView.swift */,
+				23975D302B67688F00F73D87 /* PracticeStatePropertyView.swift */,
+				23975D322B676C1D00F73D87 /* DemoData.swift */,
+				23975D342B676F2500F73D87 /* SpeedControlView.swift */,
+			);
+			path = "practice-base";
+			sourceTree = "<group>";
+		};
+		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "practice-demo-proj";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
+				23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */,
+				23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */,
+				23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
+				23975D332B676C1D00F73D87 /* DemoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,6 +53,12 @@ struct ContentView: View {
                     .fill(Color.blue)
                     .frame(width: 25, height: 25)
             })
+            .padding()
+            HStack {
+                Image(systemName: "goforward.10")
+                Image(systemName: "goforward.15")
+                Image(systemName: "goforward.30")
+            }
         }
     }
     
