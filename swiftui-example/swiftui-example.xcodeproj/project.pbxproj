@@ -20,6 +20,19 @@
 		232C7EEA2B689DAD00451181 /* AlignmentDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EE92B689DAD00451181 /* AlignmentDemoView.swift */; };
 		232C7EEC2B68B08900451181 /* AlignmnetGuideTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EEB2B68B08900451181 /* AlignmnetGuideTool.swift */; };
 		232C7EEF2B68B93100451181 /* ListDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EEE2B68B93100451181 /* ListDemoView.swift */; };
+		232C7EF12B68C30300451181 /* CarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232C7EF02B68C30300451181 /* CarAssets.xcassets */; };
+		232C7EF32B68C33900451181 /* carData.json in Resources */ = {isa = PBXBuildFile; fileRef = 232C7EF22B68C33900451181 /* carData.json */; };
+		232C7EF52B68C36200451181 /* CarListDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EF42B68C36200451181 /* CarListDemoView.swift */; };
+		232C7EF72B68C3BC00451181 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EF62B68C3BC00451181 /* Car.swift */; };
+		232C7EF92B68C40600451181 /* CarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EF82B68C40600451181 /* CarData.swift */; };
+		232C7EFB2B68C50300451181 /* CarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EFA2B68C50300451181 /* CarStore.swift */; };
+		232C7EFD2B68C9DF00451181 /* CarDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EFC2B68C9DF00451181 /* CarDetail.swift */; };
+		232C7EFF2B68CBE500451181 /* AddNewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EFE2B68CBE500451181 /* AddNewCarView.swift */; };
+		232C7F022B68D01400451181 /* NavigationSplitDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F012B68D01400451181 /* NavigationSplitDemoView.swift */; };
+		232C7F042B68D21B00451181 /* IconCategroy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F032B68D21B00451181 /* IconCategroy.swift */; };
+		232C7F062B68D28000451181 /* NavigationSplitIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F052B68D28000451181 /* NavigationSplitIconsView.swift */; };
+		232C7F0E2B68DC2F00451181 /* OutlineGroupDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F0D2B68DC2F00451181 /* OutlineGroupDemoView.swift */; };
+		232C7F102B68DE8400451181 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F0F2B68DE8400451181 /* SettingView.swift */; };
 		23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */; };
 		23975D222B67446D00F73D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D212B67446D00F73D87 /* ContentView.swift */; };
 		23975D242B67446E00F73D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D232B67446E00F73D87 /* Assets.xcassets */; };
@@ -46,6 +59,19 @@
 		232C7EE92B689DAD00451181 /* AlignmentDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentDemoView.swift; sourceTree = "<group>"; };
 		232C7EEB2B68B08900451181 /* AlignmnetGuideTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmnetGuideTool.swift; sourceTree = "<group>"; };
 		232C7EEE2B68B93100451181 /* ListDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemoView.swift; sourceTree = "<group>"; };
+		232C7EF02B68C30300451181 /* CarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CarAssets.xcassets; sourceTree = "<group>"; };
+		232C7EF22B68C33900451181 /* carData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carData.json; sourceTree = "<group>"; };
+		232C7EF42B68C36200451181 /* CarListDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListDemoView.swift; sourceTree = "<group>"; };
+		232C7EF62B68C3BC00451181 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		232C7EF82B68C40600451181 /* CarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarData.swift; sourceTree = "<group>"; };
+		232C7EFA2B68C50300451181 /* CarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStore.swift; sourceTree = "<group>"; };
+		232C7EFC2B68C9DF00451181 /* CarDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetail.swift; sourceTree = "<group>"; };
+		232C7EFE2B68CBE500451181 /* AddNewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarView.swift; sourceTree = "<group>"; };
+		232C7F012B68D01400451181 /* NavigationSplitDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSplitDemoView.swift; sourceTree = "<group>"; };
+		232C7F032B68D21B00451181 /* IconCategroy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCategroy.swift; sourceTree = "<group>"; };
+		232C7F052B68D28000451181 /* NavigationSplitIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSplitIconsView.swift; sourceTree = "<group>"; };
+		232C7F0D2B68DC2F00451181 /* OutlineGroupDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineGroupDemoView.swift; sourceTree = "<group>"; };
+		232C7F0F2B68DE8400451181 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		23975D1C2B67446D00F73D87 /* swiftui-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_exampleApp.swift; sourceTree = "<group>"; };
 		23975D212B67446D00F73D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,9 +139,36 @@
 		232C7EED2B68B91D00451181 /* list-demo */ = {
 			isa = PBXGroup;
 			children = (
+				232C7EF02B68C30300451181 /* CarAssets.xcassets */,
+				232C7EF22B68C33900451181 /* carData.json */,
 				232C7EEE2B68B93100451181 /* ListDemoView.swift */,
+				232C7EF42B68C36200451181 /* CarListDemoView.swift */,
+				232C7EFE2B68CBE500451181 /* AddNewCarView.swift */,
+				232C7EF62B68C3BC00451181 /* Car.swift */,
+				232C7EF82B68C40600451181 /* CarData.swift */,
+				232C7EFA2B68C50300451181 /* CarStore.swift */,
+				232C7EFC2B68C9DF00451181 /* CarDetail.swift */,
 			);
 			path = "list-demo";
+			sourceTree = "<group>";
+		};
+		232C7F002B68CFF700451181 /* navigation-split-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7F012B68D01400451181 /* NavigationSplitDemoView.swift */,
+				232C7F032B68D21B00451181 /* IconCategroy.swift */,
+				232C7F052B68D28000451181 /* NavigationSplitIconsView.swift */,
+			);
+			path = "navigation-split-demo";
+			sourceTree = "<group>";
+		};
+		232C7F0A2B68DBF900451181 /* outline-group-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7F0D2B68DC2F00451181 /* OutlineGroupDemoView.swift */,
+				232C7F0F2B68DE8400451181 /* SettingView.swift */,
+			);
+			path = "outline-group-demo";
 			sourceTree = "<group>";
 		};
 		23975D132B67446D00F73D87 = {
@@ -170,6 +223,8 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				232C7F0A2B68DBF900451181 /* outline-group-demo */,
+				232C7F002B68CFF700451181 /* navigation-split-demo */,
 				232C7EED2B68B91D00451181 /* list-demo */,
 				232C7EE82B689D9100451181 /* alignment-demo */,
 				232C7EE12B68976A00451181 /* storage-demo */,
@@ -240,8 +295,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232C7EF32B68C33900451181 /* carData.json in Resources */,
 				23975D282B67446E00F73D87 /* Preview Assets.xcassets in Resources */,
 				23975D242B67446E00F73D87 /* Assets.xcassets in Resources */,
+				232C7EF12B68C30300451181 /* CarAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,9 +313,14 @@
 				23975D3B2B6777B000F73D87 /* ConcurrncyDemoView.swift in Sources */,
 				232C7ED02B6881FF00451181 /* LifeCycleDemoView.swift in Sources */,
 				232C7EEF2B68B93100451181 /* ListDemoView.swift in Sources */,
+				232C7EF52B68C36200451181 /* CarListDemoView.swift in Sources */,
+				232C7F102B68DE8400451181 /* SettingView.swift in Sources */,
 				232C7EEA2B689DAD00451181 /* AlignmentDemoView.swift in Sources */,
 				232C7ED92B6889F100451181 /* TimerData.swift in Sources */,
+				232C7EFF2B68CBE500451181 /* AddNewCarView.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
+				232C7EF92B68C40600451181 /* CarData.swift in Sources */,
+				232C7EFB2B68C50300451181 /* CarStore.swift in Sources */,
 				232C7EE32B68997100451181 /* StorageDemoView.swift in Sources */,
 				232C7ED72B68834A00451181 /* SecondTabView.swift in Sources */,
 				232C7EE52B6899D100451181 /* SceneStorageView.swift in Sources */,
@@ -266,10 +328,16 @@
 				23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */,
 				232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */,
 				23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */,
+				232C7EFD2B68C9DF00451181 /* CarDetail.swift in Sources */,
 				232C7EE72B689A2000451181 /* AppStorageView.swift in Sources */,
 				23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */,
+				232C7F062B68D28000451181 /* NavigationSplitIconsView.swift in Sources */,
+				232C7EF72B68C3BC00451181 /* Car.swift in Sources */,
 				232C7ED22B68828500451181 /* FirstTabView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
+				232C7F0E2B68DC2F00451181 /* OutlineGroupDemoView.swift in Sources */,
+				232C7F042B68D21B00451181 /* IconCategroy.swift in Sources */,
+				232C7F022B68D01400451181 /* NavigationSplitDemoView.swift in Sources */,
 				232C7EDE2B68920500451181 /* ObservableDemoView.swift in Sources */,
 				232C7EEC2B68B08900451181 /* AlignmnetGuideTool.swift in Sources */,
 				23975D332B676C1D00F73D87 /* DemoData.swift in Sources */,
