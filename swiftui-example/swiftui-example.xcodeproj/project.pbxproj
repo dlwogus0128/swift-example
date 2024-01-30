@@ -33,6 +33,8 @@
 		232C7F062B68D28000451181 /* NavigationSplitIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F052B68D28000451181 /* NavigationSplitIconsView.swift */; };
 		232C7F0E2B68DC2F00451181 /* OutlineGroupDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F0D2B68DC2F00451181 /* OutlineGroupDemoView.swift */; };
 		232C7F102B68DE8400451181 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F0F2B68DE8400451181 /* SettingView.swift */; };
+		232C7F132B68E12500451181 /* GridDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F122B68E12500451181 /* GridDemoView.swift */; };
+		232C7F152B68E59800451181 /* GridDemoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F142B68E59800451181 /* GridDemoRowView.swift */; };
 		23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */; };
 		23975D222B67446D00F73D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D212B67446D00F73D87 /* ContentView.swift */; };
 		23975D242B67446E00F73D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D232B67446E00F73D87 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		232C7F052B68D28000451181 /* NavigationSplitIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSplitIconsView.swift; sourceTree = "<group>"; };
 		232C7F0D2B68DC2F00451181 /* OutlineGroupDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineGroupDemoView.swift; sourceTree = "<group>"; };
 		232C7F0F2B68DE8400451181 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		232C7F122B68E12500451181 /* GridDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDemoView.swift; sourceTree = "<group>"; };
+		232C7F142B68E59800451181 /* GridDemoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDemoRowView.swift; sourceTree = "<group>"; };
 		23975D1C2B67446D00F73D87 /* swiftui-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_exampleApp.swift; sourceTree = "<group>"; };
 		23975D212B67446D00F73D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,15 @@
 			path = "outline-group-demo";
 			sourceTree = "<group>";
 		};
+		232C7F112B68E10700451181 /* grid-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7F122B68E12500451181 /* GridDemoView.swift */,
+				232C7F142B68E59800451181 /* GridDemoRowView.swift */,
+			);
+			path = "grid-demo";
+			sourceTree = "<group>";
+		};
 		23975D132B67446D00F73D87 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +236,7 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				232C7F112B68E10700451181 /* grid-demo */,
 				232C7F0A2B68DBF900451181 /* outline-group-demo */,
 				232C7F002B68CFF700451181 /* navigation-split-demo */,
 				232C7EED2B68B91D00451181 /* list-demo */,
@@ -317,6 +331,7 @@
 				232C7F102B68DE8400451181 /* SettingView.swift in Sources */,
 				232C7EEA2B689DAD00451181 /* AlignmentDemoView.swift in Sources */,
 				232C7ED92B6889F100451181 /* TimerData.swift in Sources */,
+				232C7F132B68E12500451181 /* GridDemoView.swift in Sources */,
 				232C7EFF2B68CBE500451181 /* AddNewCarView.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
 				232C7EF92B68C40600451181 /* CarData.swift in Sources */,
@@ -328,6 +343,7 @@
 				23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */,
 				232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */,
 				23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */,
+				232C7F152B68E59800451181 /* GridDemoRowView.swift in Sources */,
 				232C7EFD2B68C9DF00451181 /* CarDetail.swift in Sources */,
 				232C7EE72B689A2000451181 /* AppStorageView.swift in Sources */,
 				23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */,
