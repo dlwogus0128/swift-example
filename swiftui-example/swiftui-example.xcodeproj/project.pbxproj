@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232C7ECE2B687BF800451181 /* ActorDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7ECD2B687BF800451181 /* ActorDemoView.swift */; };
+		232C7ED02B6881FF00451181 /* LifeCycleDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7ECF2B6881FF00451181 /* LifeCycleDemoView.swift */; };
+		232C7ED22B68828500451181 /* FirstTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7ED12B68828500451181 /* FirstTabView.swift */; };
+		232C7ED72B68834A00451181 /* SecondTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7ED62B68834A00451181 /* SecondTabView.swift */; };
+		232C7ED92B6889F100451181 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7ED82B6889F100451181 /* TimerData.swift */; };
+		232C7EDE2B68920500451181 /* ObservableDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EDD2B68920500451181 /* ObservableDemoView.swift */; };
+		232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EDF2B6892A000451181 /* ObservableDemoSecondView.swift */; };
 		23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */; };
 		23975D222B67446D00F73D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D212B67446D00F73D87 /* ContentView.swift */; };
 		23975D242B67446E00F73D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D232B67446E00F73D87 /* Assets.xcassets */; };
@@ -15,9 +22,18 @@
 		23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D302B67688F00F73D87 /* PracticeStatePropertyView.swift */; };
 		23975D332B676C1D00F73D87 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D322B676C1D00F73D87 /* DemoData.swift */; };
 		23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D342B676F2500F73D87 /* SpeedControlView.swift */; };
+		23975D392B67712F00F73D87 /* DemoProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D382B67712F00F73D87 /* DemoProjectView.swift */; };
+		23975D3B2B6777B000F73D87 /* ConcurrncyDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		232C7ECD2B687BF800451181 /* ActorDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDemoView.swift; sourceTree = "<group>"; };
+		232C7ECF2B6881FF00451181 /* LifeCycleDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleDemoView.swift; sourceTree = "<group>"; };
+		232C7ED12B68828500451181 /* FirstTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabView.swift; sourceTree = "<group>"; };
+		232C7ED62B68834A00451181 /* SecondTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabView.swift; sourceTree = "<group>"; };
+		232C7ED82B6889F100451181 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
+		232C7EDD2B68920500451181 /* ObservableDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableDemoView.swift; sourceTree = "<group>"; };
+		232C7EDF2B6892A000451181 /* ObservableDemoSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableDemoSecondView.swift; sourceTree = "<group>"; };
 		23975D1C2B67446D00F73D87 /* swiftui-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_exampleApp.swift; sourceTree = "<group>"; };
 		23975D212B67446D00F73D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,6 +44,8 @@
 		23975D302B67688F00F73D87 /* PracticeStatePropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeStatePropertyView.swift; sourceTree = "<group>"; };
 		23975D322B676C1D00F73D87 /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
 		23975D342B676F2500F73D87 /* SpeedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedControlView.swift; sourceTree = "<group>"; };
+		23975D382B67712F00F73D87 /* DemoProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProjectView.swift; sourceTree = "<group>"; };
+		23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrncyDemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +59,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		232C7ED32B68828F00451181 /* life-cycle-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7ECF2B6881FF00451181 /* LifeCycleDemoView.swift */,
+				232C7ED12B68828500451181 /* FirstTabView.swift */,
+				232C7ED62B68834A00451181 /* SecondTabView.swift */,
+			);
+			path = "life-cycle-demo";
+			sourceTree = "<group>";
+		};
+		232C7EDA2B688E5D00451181 /* observable-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7ED82B6889F100451181 /* TimerData.swift */,
+				232C7EDD2B68920500451181 /* ObservableDemoView.swift */,
+				232C7EDF2B6892A000451181 /* ObservableDemoSecondView.swift */,
+			);
+			path = "observable-demo";
+			sourceTree = "<group>";
+		};
+		232C7EE12B68976A00451181 /* storage-demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "storage-demo";
+			sourceTree = "<group>";
+		};
 		23975D132B67446D00F73D87 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +138,12 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				232C7EE12B68976A00451181 /* storage-demo */,
+				232C7EDA2B688E5D00451181 /* observable-demo */,
+				232C7ED32B68828F00451181 /* life-cycle-demo */,
+				23975D382B67712F00F73D87 /* DemoProjectView.swift */,
+				23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */,
+				232C7ECD2B687BF800451181 /* ActorDemoView.swift */,
 			);
 			path = "practice-demo-proj";
 			sourceTree = "<group>";
@@ -167,11 +218,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23975D392B67712F00F73D87 /* DemoProjectView.swift in Sources */,
+				23975D3B2B6777B000F73D87 /* ConcurrncyDemoView.swift in Sources */,
+				232C7ED02B6881FF00451181 /* LifeCycleDemoView.swift in Sources */,
+				232C7ED92B6889F100451181 /* TimerData.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
+				232C7ED72B68834A00451181 /* SecondTabView.swift in Sources */,
+				232C7ECE2B687BF800451181 /* ActorDemoView.swift in Sources */,
 				23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */,
+				232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */,
 				23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */,
 				23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */,
+				232C7ED22B68828500451181 /* FirstTabView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
+				232C7EDE2B68920500451181 /* ObservableDemoView.swift in Sources */,
 				23975D332B676C1D00F73D87 /* DemoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
