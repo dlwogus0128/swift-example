@@ -14,6 +14,12 @@
 		232C7ED92B6889F100451181 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7ED82B6889F100451181 /* TimerData.swift */; };
 		232C7EDE2B68920500451181 /* ObservableDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EDD2B68920500451181 /* ObservableDemoView.swift */; };
 		232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EDF2B6892A000451181 /* ObservableDemoSecondView.swift */; };
+		232C7EE32B68997100451181 /* StorageDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EE22B68997100451181 /* StorageDemoView.swift */; };
+		232C7EE52B6899D100451181 /* SceneStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EE42B6899D100451181 /* SceneStorageView.swift */; };
+		232C7EE72B689A2000451181 /* AppStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EE62B689A2000451181 /* AppStorageView.swift */; };
+		232C7EEA2B689DAD00451181 /* AlignmentDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EE92B689DAD00451181 /* AlignmentDemoView.swift */; };
+		232C7EEC2B68B08900451181 /* AlignmnetGuideTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EEB2B68B08900451181 /* AlignmnetGuideTool.swift */; };
+		232C7EEF2B68B93100451181 /* ListDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7EEE2B68B93100451181 /* ListDemoView.swift */; };
 		23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */; };
 		23975D222B67446D00F73D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D212B67446D00F73D87 /* ContentView.swift */; };
 		23975D242B67446E00F73D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D232B67446E00F73D87 /* Assets.xcassets */; };
@@ -34,6 +40,12 @@
 		232C7ED82B6889F100451181 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		232C7EDD2B68920500451181 /* ObservableDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableDemoView.swift; sourceTree = "<group>"; };
 		232C7EDF2B6892A000451181 /* ObservableDemoSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableDemoSecondView.swift; sourceTree = "<group>"; };
+		232C7EE22B68997100451181 /* StorageDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDemoView.swift; sourceTree = "<group>"; };
+		232C7EE42B6899D100451181 /* SceneStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneStorageView.swift; sourceTree = "<group>"; };
+		232C7EE62B689A2000451181 /* AppStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageView.swift; sourceTree = "<group>"; };
+		232C7EE92B689DAD00451181 /* AlignmentDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentDemoView.swift; sourceTree = "<group>"; };
+		232C7EEB2B68B08900451181 /* AlignmnetGuideTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmnetGuideTool.swift; sourceTree = "<group>"; };
+		232C7EEE2B68B93100451181 /* ListDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemoView.swift; sourceTree = "<group>"; };
 		23975D1C2B67446D00F73D87 /* swiftui-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_exampleApp.swift; sourceTree = "<group>"; };
 		23975D212B67446D00F73D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,8 +94,28 @@
 		232C7EE12B68976A00451181 /* storage-demo */ = {
 			isa = PBXGroup;
 			children = (
+				232C7EE22B68997100451181 /* StorageDemoView.swift */,
+				232C7EE42B6899D100451181 /* SceneStorageView.swift */,
+				232C7EE62B689A2000451181 /* AppStorageView.swift */,
 			);
 			path = "storage-demo";
+			sourceTree = "<group>";
+		};
+		232C7EE82B689D9100451181 /* alignment-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7EE92B689DAD00451181 /* AlignmentDemoView.swift */,
+				232C7EEB2B68B08900451181 /* AlignmnetGuideTool.swift */,
+			);
+			path = "alignment-demo";
+			sourceTree = "<group>";
+		};
+		232C7EED2B68B91D00451181 /* list-demo */ = {
+			isa = PBXGroup;
+			children = (
+				232C7EEE2B68B93100451181 /* ListDemoView.swift */,
+			);
+			path = "list-demo";
 			sourceTree = "<group>";
 		};
 		23975D132B67446D00F73D87 = {
@@ -138,6 +170,8 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				232C7EED2B68B91D00451181 /* list-demo */,
+				232C7EE82B689D9100451181 /* alignment-demo */,
 				232C7EE12B68976A00451181 /* storage-demo */,
 				232C7EDA2B688E5D00451181 /* observable-demo */,
 				232C7ED32B68828F00451181 /* life-cycle-demo */,
@@ -221,17 +255,23 @@
 				23975D392B67712F00F73D87 /* DemoProjectView.swift in Sources */,
 				23975D3B2B6777B000F73D87 /* ConcurrncyDemoView.swift in Sources */,
 				232C7ED02B6881FF00451181 /* LifeCycleDemoView.swift in Sources */,
+				232C7EEF2B68B93100451181 /* ListDemoView.swift in Sources */,
+				232C7EEA2B689DAD00451181 /* AlignmentDemoView.swift in Sources */,
 				232C7ED92B6889F100451181 /* TimerData.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
+				232C7EE32B68997100451181 /* StorageDemoView.swift in Sources */,
 				232C7ED72B68834A00451181 /* SecondTabView.swift in Sources */,
+				232C7EE52B6899D100451181 /* SceneStorageView.swift in Sources */,
 				232C7ECE2B687BF800451181 /* ActorDemoView.swift in Sources */,
 				23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */,
 				232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */,
 				23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */,
+				232C7EE72B689A2000451181 /* AppStorageView.swift in Sources */,
 				23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */,
 				232C7ED22B68828500451181 /* FirstTabView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
 				232C7EDE2B68920500451181 /* ObservableDemoView.swift in Sources */,
+				232C7EEC2B68B08900451181 /* AlignmnetGuideTool.swift in Sources */,
 				23975D332B676C1D00F73D87 /* DemoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

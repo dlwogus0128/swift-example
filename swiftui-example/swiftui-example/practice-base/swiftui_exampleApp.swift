@@ -13,7 +13,7 @@ struct swiftui_exampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListDemoView()
         }
         // 화면 단계가 앱 내 모든 화면의 상태를 기반으로 함
         .onChange(of: scenePhase, perform: { phase in   // 이 부분이 활성화되는 경우는, 화면이 포->백그라운드로 전환되거나, 활성화->비활성화로 변경될 때 등의 경우에서
