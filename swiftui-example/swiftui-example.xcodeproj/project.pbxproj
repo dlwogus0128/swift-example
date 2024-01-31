@@ -45,6 +45,9 @@
 		23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D342B676F2500F73D87 /* SpeedControlView.swift */; };
 		23975D392B67712F00F73D87 /* DemoProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D382B67712F00F73D87 /* DemoProjectView.swift */; };
 		23975D3B2B6777B000F73D87 /* ConcurrncyDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */; };
+		23D513A92B69CBEE00EBF4C7 /* TabViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */; };
+		23D513AC2B69CE4500EBF4C7 /* ContextMenuDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */; };
+		23D513AF2B69CFEA00EBF4C7 /* DrawDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,9 @@
 		23975D342B676F2500F73D87 /* SpeedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedControlView.swift; sourceTree = "<group>"; };
 		23975D382B67712F00F73D87 /* DemoProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProjectView.swift; sourceTree = "<group>"; };
 		23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrncyDemoView.swift; sourceTree = "<group>"; };
+		23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemoView.swift; sourceTree = "<group>"; };
+		23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDemoView.swift; sourceTree = "<group>"; };
+		23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawDemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +242,9 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				23D513AD2B69CFD800EBF4C7 /* draw-demo */,
+				23D513AA2B69CE2A00EBF4C7 /* context-menu-demo */,
+				23D513A72B69CBCB00EBF4C7 /* tabview-demo */,
 				232C7F112B68E10700451181 /* grid-demo */,
 				232C7F0A2B68DBF900451181 /* outline-group-demo */,
 				232C7F002B68CFF700451181 /* navigation-split-demo */,
@@ -249,6 +258,30 @@
 				232C7ECD2B687BF800451181 /* ActorDemoView.swift */,
 			);
 			path = "practice-demo-proj";
+			sourceTree = "<group>";
+		};
+		23D513A72B69CBCB00EBF4C7 /* tabview-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */,
+			);
+			path = "tabview-demo";
+			sourceTree = "<group>";
+		};
+		23D513AA2B69CE2A00EBF4C7 /* context-menu-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */,
+			);
+			path = "context-menu-demo";
+			sourceTree = "<group>";
+		};
+		23D513AD2B69CFD800EBF4C7 /* draw-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */,
+			);
+			path = "draw-demo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,10 +385,13 @@
 				232C7ED22B68828500451181 /* FirstTabView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
 				232C7F0E2B68DC2F00451181 /* OutlineGroupDemoView.swift in Sources */,
+				23D513A92B69CBEE00EBF4C7 /* TabViewDemoView.swift in Sources */,
 				232C7F042B68D21B00451181 /* IconCategroy.swift in Sources */,
 				232C7F022B68D01400451181 /* NavigationSplitDemoView.swift in Sources */,
 				232C7EDE2B68920500451181 /* ObservableDemoView.swift in Sources */,
+				23D513AF2B69CFEA00EBF4C7 /* DrawDemoView.swift in Sources */,
 				232C7EEC2B68B08900451181 /* AlignmnetGuideTool.swift in Sources */,
+				23D513AC2B69CE4500EBF4C7 /* ContextMenuDemoView.swift in Sources */,
 				23975D332B676C1D00F73D87 /* DemoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
