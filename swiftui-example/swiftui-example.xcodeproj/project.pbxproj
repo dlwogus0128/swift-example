@@ -48,6 +48,8 @@
 		23D513A92B69CBEE00EBF4C7 /* TabViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */; };
 		23D513AC2B69CE4500EBF4C7 /* ContextMenuDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */; };
 		23D513AF2B69CFEA00EBF4C7 /* DrawDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */; };
+		23D513B22B69E43D00EBF4C7 /* AnimationDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513B12B69E43D00EBF4C7 /* AnimationDemoView.swift */; };
+		23D513B62B69EC3200EBF4C7 /* GestureDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513B52B69EC3200EBF4C7 /* GestureDemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,8 @@
 		23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemoView.swift; sourceTree = "<group>"; };
 		23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDemoView.swift; sourceTree = "<group>"; };
 		23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawDemoView.swift; sourceTree = "<group>"; };
+		23D513B12B69E43D00EBF4C7 /* AnimationDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDemoView.swift; sourceTree = "<group>"; };
+		23D513B52B69EC3200EBF4C7 /* GestureDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureDemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +246,8 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				23D513B42B69EC1000EBF4C7 /* gesture-demo */,
+				23D513B02B69E42D00EBF4C7 /* animation-demo */,
 				23D513AD2B69CFD800EBF4C7 /* draw-demo */,
 				23D513AA2B69CE2A00EBF4C7 /* context-menu-demo */,
 				23D513A72B69CBCB00EBF4C7 /* tabview-demo */,
@@ -282,6 +288,22 @@
 				23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */,
 			);
 			path = "draw-demo";
+			sourceTree = "<group>";
+		};
+		23D513B02B69E42D00EBF4C7 /* animation-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513B12B69E43D00EBF4C7 /* AnimationDemoView.swift */,
+			);
+			path = "animation-demo";
+			sourceTree = "<group>";
+		};
+		23D513B42B69EC1000EBF4C7 /* gesture-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513B52B69EC3200EBF4C7 /* GestureDemoView.swift */,
+			);
+			path = "gesture-demo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +390,7 @@
 				232C7EFF2B68CBE500451181 /* AddNewCarView.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
 				232C7EF92B68C40600451181 /* CarData.swift in Sources */,
+				23D513B22B69E43D00EBF4C7 /* AnimationDemoView.swift in Sources */,
 				232C7EFB2B68C50300451181 /* CarStore.swift in Sources */,
 				232C7EE32B68997100451181 /* StorageDemoView.swift in Sources */,
 				232C7ED72B68834A00451181 /* SecondTabView.swift in Sources */,
@@ -393,6 +416,7 @@
 				232C7EEC2B68B08900451181 /* AlignmnetGuideTool.swift in Sources */,
 				23D513AC2B69CE4500EBF4C7 /* ContextMenuDemoView.swift in Sources */,
 				23975D332B676C1D00F73D87 /* DemoData.swift in Sources */,
+				23D513B62B69EC3200EBF4C7 /* GestureDemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
