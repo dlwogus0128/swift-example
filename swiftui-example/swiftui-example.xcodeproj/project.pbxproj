@@ -35,6 +35,8 @@
 		232C7F102B68DE8400451181 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F0F2B68DE8400451181 /* SettingView.swift */; };
 		232C7F132B68E12500451181 /* GridDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F122B68E12500451181 /* GridDemoView.swift */; };
 		232C7F152B68E59800451181 /* GridDemoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F142B68E59800451181 /* GridDemoRowView.swift */; };
+		2346B1752B6B1A0F00C3CBA0 /* DocDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346B1742B6B1A0F00C3CBA0 /* DocDemoView.swift */; };
+		2346B1772B6B1B1300C3CBA0 /* DocDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346B1762B6B1B1300C3CBA0 /* DocDemoDocument.swift */; };
 		23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */; };
 		23975D222B67446D00F73D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D212B67446D00F73D87 /* ContentView.swift */; };
 		23975D242B67446E00F73D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23975D232B67446E00F73D87 /* Assets.xcassets */; };
@@ -50,6 +52,9 @@
 		23D513AF2B69CFEA00EBF4C7 /* DrawDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */; };
 		23D513B22B69E43D00EBF4C7 /* AnimationDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513B12B69E43D00EBF4C7 /* AnimationDemoView.swift */; };
 		23D513B62B69EC3200EBF4C7 /* GestureDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513B52B69EC3200EBF4C7 /* GestureDemoView.swift */; };
+		23D513B92B6A2F9C00EBF4C7 /* ProgressDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513B82B6A2F9C00EBF4C7 /* ProgressDemoView.swift */; };
+		23D513BC2B6A369100EBF4C7 /* SalesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513BB2B6A369100EBF4C7 /* SalesData.swift */; };
+		23D513BE2B6A377500EBF4C7 /* ChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513BD2B6A377500EBF4C7 /* ChartDemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +86,9 @@
 		232C7F0F2B68DE8400451181 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		232C7F122B68E12500451181 /* GridDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDemoView.swift; sourceTree = "<group>"; };
 		232C7F142B68E59800451181 /* GridDemoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDemoRowView.swift; sourceTree = "<group>"; };
+		2346B1742B6B1A0F00C3CBA0 /* DocDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocDemoView.swift; sourceTree = "<group>"; };
+		2346B1762B6B1B1300C3CBA0 /* DocDemoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocDemoDocument.swift; sourceTree = "<group>"; };
+		2346B1782B6B1B2400C3CBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		23975D1C2B67446D00F73D87 /* swiftui-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_exampleApp.swift; sourceTree = "<group>"; };
 		23975D212B67446D00F73D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +106,9 @@
 		23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawDemoView.swift; sourceTree = "<group>"; };
 		23D513B12B69E43D00EBF4C7 /* AnimationDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDemoView.swift; sourceTree = "<group>"; };
 		23D513B52B69EC3200EBF4C7 /* GestureDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureDemoView.swift; sourceTree = "<group>"; };
+		23D513B82B6A2F9C00EBF4C7 /* ProgressDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDemoView.swift; sourceTree = "<group>"; };
+		23D513BB2B6A369100EBF4C7 /* SalesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesData.swift; sourceTree = "<group>"; };
+		23D513BD2B6A377500EBF4C7 /* ChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +205,15 @@
 			path = "grid-demo";
 			sourceTree = "<group>";
 		};
+		2346B1732B6B19FD00C3CBA0 /* doc-demo */ = {
+			isa = PBXGroup;
+			children = (
+				2346B1742B6B1A0F00C3CBA0 /* DocDemoView.swift */,
+				2346B1762B6B1B1300C3CBA0 /* DocDemoDocument.swift */,
+			);
+			path = "doc-demo";
+			sourceTree = "<group>";
+		};
 		23975D132B67446D00F73D87 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +233,7 @@
 		23975D1E2B67446D00F73D87 /* swiftui-example */ = {
 			isa = PBXGroup;
 			children = (
+				2346B1782B6B1B2400C3CBA0 /* Info.plist */,
 				23975D362B6770A000F73D87 /* practice-base */,
 				23975D372B6770D600F73D87 /* practice-demo-proj */,
 				23975D232B67446E00F73D87 /* Assets.xcassets */,
@@ -246,6 +267,9 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				2346B1732B6B19FD00C3CBA0 /* doc-demo */,
+				23D513BA2B6A367300EBF4C7 /* chart-demo */,
+				23D513B72B6A2F8400EBF4C7 /* progress-demo */,
 				23D513B42B69EC1000EBF4C7 /* gesture-demo */,
 				23D513B02B69E42D00EBF4C7 /* animation-demo */,
 				23D513AD2B69CFD800EBF4C7 /* draw-demo */,
@@ -304,6 +328,23 @@
 				23D513B52B69EC3200EBF4C7 /* GestureDemoView.swift */,
 			);
 			path = "gesture-demo";
+			sourceTree = "<group>";
+		};
+		23D513B72B6A2F8400EBF4C7 /* progress-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513B82B6A2F9C00EBF4C7 /* ProgressDemoView.swift */,
+			);
+			path = "progress-demo";
+			sourceTree = "<group>";
+		};
+		23D513BA2B6A367300EBF4C7 /* chart-demo */ = {
+			isa = PBXGroup;
+			children = (
+				23D513BB2B6A369100EBF4C7 /* SalesData.swift */,
+				23D513BD2B6A377500EBF4C7 /* ChartDemoView.swift */,
+			);
+			path = "chart-demo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,10 +429,13 @@
 				232C7ED92B6889F100451181 /* TimerData.swift in Sources */,
 				232C7F132B68E12500451181 /* GridDemoView.swift in Sources */,
 				232C7EFF2B68CBE500451181 /* AddNewCarView.swift in Sources */,
+				23D513BE2B6A377500EBF4C7 /* ChartDemoView.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
 				232C7EF92B68C40600451181 /* CarData.swift in Sources */,
 				23D513B22B69E43D00EBF4C7 /* AnimationDemoView.swift in Sources */,
+				2346B1752B6B1A0F00C3CBA0 /* DocDemoView.swift in Sources */,
 				232C7EFB2B68C50300451181 /* CarStore.swift in Sources */,
+				23D513B92B6A2F9C00EBF4C7 /* ProgressDemoView.swift in Sources */,
 				232C7EE32B68997100451181 /* StorageDemoView.swift in Sources */,
 				232C7ED72B68834A00451181 /* SecondTabView.swift in Sources */,
 				232C7EE52B6899D100451181 /* SceneStorageView.swift in Sources */,
@@ -399,11 +443,13 @@
 				23975D2F2B675F9B00F73D87 /* PracticeStackView.swift in Sources */,
 				232C7EE02B6892A000451181 /* ObservableDemoSecondView.swift in Sources */,
 				23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */,
+				23D513BC2B6A369100EBF4C7 /* SalesData.swift in Sources */,
 				232C7F152B68E59800451181 /* GridDemoRowView.swift in Sources */,
 				232C7EFD2B68C9DF00451181 /* CarDetail.swift in Sources */,
 				232C7EE72B689A2000451181 /* AppStorageView.swift in Sources */,
 				23975D312B67688F00F73D87 /* PracticeStatePropertyView.swift in Sources */,
 				232C7F062B68D28000451181 /* NavigationSplitIconsView.swift in Sources */,
+				2346B1772B6B1B1300C3CBA0 /* DocDemoDocument.swift in Sources */,
 				232C7EF72B68C3BC00451181 /* Car.swift in Sources */,
 				232C7ED22B68828500451181 /* FirstTabView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
@@ -550,6 +596,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "swiftui-example/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -588,6 +635,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "swiftui-example/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
