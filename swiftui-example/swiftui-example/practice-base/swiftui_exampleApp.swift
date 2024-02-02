@@ -28,7 +28,8 @@ struct swiftui_exampleApp: App {
                 print("Unknown scenephase")
             }
         })
-        DocumentGroup(newDocument: DocDemoDocumnet()) { file in
-            DocDemoView(documnet: file.$document)
-        }
+    }
+//        DocumentGroup(newDocument: DocDemoDocumnet()) { file in
+//            DocDemoView(documnet: file.$document)
+//        }
 }
