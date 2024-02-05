@@ -123,7 +123,7 @@ struct ResultView: View {
     }
 }
 
-//#Preview {
-//    ContentView()
-//        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
-//}
+#Preview {
+    ContentView()
+        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+}
