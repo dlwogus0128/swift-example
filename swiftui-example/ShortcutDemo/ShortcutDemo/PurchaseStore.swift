@@ -11,7 +11,7 @@ import SwiftUI
 struct PurchaseStore {
     
     @AppStorage("demostorage", store: UserDefaults(
-                    suiteName: "YOUR APP GROUP NAME HERE")) var store: Data = Data()
+                    suiteName: "group.com.reenact.container")) var store: Data = Data()
     
     var purchases: [Purchase] = []
     
