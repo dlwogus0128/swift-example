@@ -39,6 +39,8 @@
 		232C7F152B68E59800451181 /* GridDemoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C7F142B68E59800451181 /* GridDemoRowView.swift */; };
 		233336062B71EE71000725F2 /* MyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233336052B71EE71000725F2 /* MyScrollView.swift */; };
 		233336082B71F399000725F2 /* MyScrollContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233336072B71F399000725F2 /* MyScrollContentView.swift */; };
+		2333360C2B71F4D9000725F2 /* MyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333360B2B71F4D9000725F2 /* MyImagePicker.swift */; };
+		2333360E2B71F577000725F2 /* MyImagePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333360D2B71F577000725F2 /* MyImagePickerContentView.swift */; };
 		2346B1752B6B1A0F00C3CBA0 /* DocDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346B1742B6B1A0F00C3CBA0 /* DocDemoView.swift */; };
 		2346B1772B6B1B1300C3CBA0 /* DocDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346B1762B6B1B1300C3CBA0 /* DocDemoDocument.swift */; };
 		23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D1F2B67446D00F73D87 /* swiftui_exampleApp.swift */; };
@@ -94,6 +96,8 @@
 		232C7F142B68E59800451181 /* GridDemoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDemoRowView.swift; sourceTree = "<group>"; };
 		233336052B71EE71000725F2 /* MyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollView.swift; sourceTree = "<group>"; };
 		233336072B71F399000725F2 /* MyScrollContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollContentView.swift; sourceTree = "<group>"; };
+		2333360B2B71F4D9000725F2 /* MyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImagePicker.swift; sourceTree = "<group>"; };
+		2333360D2B71F577000725F2 /* MyImagePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImagePickerContentView.swift; sourceTree = "<group>"; };
 		2346B1742B6B1A0F00C3CBA0 /* DocDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocDemoView.swift; sourceTree = "<group>"; };
 		2346B1762B6B1B1300C3CBA0 /* DocDemoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocDemoDocument.swift; sourceTree = "<group>"; };
 		2346B1782B6B1B2400C3CBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -231,6 +235,15 @@
 			path = "uiview-demo";
 			sourceTree = "<group>";
 		};
+		2333360A2B71F4B9000725F2 /* viewcontroller-demo */ = {
+			isa = PBXGroup;
+			children = (
+				2333360B2B71F4D9000725F2 /* MyImagePicker.swift */,
+				2333360D2B71F577000725F2 /* MyImagePickerContentView.swift */,
+			);
+			path = "viewcontroller-demo";
+			sourceTree = "<group>";
+		};
 		2346B1732B6B19FD00C3CBA0 /* doc-demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +306,7 @@
 		23975D372B6770D600F73D87 /* practice-demo-proj */ = {
 			isa = PBXGroup;
 			children = (
+				2333360A2B71F4B9000725F2 /* viewcontroller-demo */,
 				233336022B71EDF3000725F2 /* uiview-demo */,
 				231A25E92B6C68EC0022E4F6 /* image-doc-demo */,
 				2346B1732B6B19FD00C3CBA0 /* doc-demo */,
@@ -459,6 +473,7 @@
 				232C7EFF2B68CBE500451181 /* AddNewCarView.swift in Sources */,
 				23D513BE2B6A377500EBF4C7 /* ChartDemoView.swift in Sources */,
 				23975D222B67446D00F73D87 /* ContentView.swift in Sources */,
+				2333360C2B71F4D9000725F2 /* MyImagePicker.swift in Sources */,
 				232C7EF92B68C40600451181 /* CarData.swift in Sources */,
 				23D513B22B69E43D00EBF4C7 /* AnimationDemoView.swift in Sources */,
 				2346B1752B6B1A0F00C3CBA0 /* DocDemoView.swift in Sources */,
@@ -482,6 +497,7 @@
 				232C7F062B68D28000451181 /* NavigationSplitIconsView.swift in Sources */,
 				2346B1772B6B1B1300C3CBA0 /* DocDemoDocument.swift in Sources */,
 				232C7EF72B68C3BC00451181 /* Car.swift in Sources */,
+				2333360E2B71F577000725F2 /* MyImagePickerContentView.swift in Sources */,
 				232C7ED22B68828500451181 /* FirstTabView.swift in Sources */,
 				23975D202B67446D00F73D87 /* swiftui_exampleApp.swift in Sources */,
 				232C7F0E2B68DC2F00451181 /* OutlineGroupDemoView.swift in Sources */,
