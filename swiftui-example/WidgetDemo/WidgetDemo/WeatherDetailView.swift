@@ -2,7 +2,7 @@
 //  WeatherDetailView.swift
 //  WidgetDemo
 //
-//  Created by 픽셀로 on 2/5/24.
+//  Created by 픽셀로 on 2/6/24.
 //
 
 import SwiftUI
@@ -27,6 +27,9 @@ struct WeatherDetailView: View {
     }
 }
 
-//#Preview {
-//    WeatherDetailView()
-//}
+struct WeatherDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let weather = WeatherType(name: "Thunder Storms", icon: "cloud.bolt")
+        WeatherDetailView(weather: weather)
+    }
+}
