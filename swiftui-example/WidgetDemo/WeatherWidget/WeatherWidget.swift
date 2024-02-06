@@ -13,24 +13,32 @@ struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> WeatherEntry {
         WeatherEntry(date: Date(), city: "London",
                            temperature: 89, description: "Thunder Storm",
-                                icon: "cloud.bolt.rain", image: "thunder")
+                     icon: "cloud.bolt.rain", image: "thunder", url: thunderUrl)
 
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (WeatherEntry) -> ()) {
         let entry = WeatherEntry(date: Date(), city: "London",
                     temperature: 89, description: "Thunder Storm",
-                         icon: "cloud.bolt.rain", image: "thunder")
+                         icon: "cloud.bolt.rain", image: "thunder", url: thunderUrl)
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-
+        
+        var chosenLocation: LocationData
+            
+        if configuration.locations == .londonUK {
+            chosenLocation = .london
+        } else {
+            chosenLocation = .miami
+        }
+        
         var entries: [WeatherEntry] = []
         var eventDate = Date()
         let halfMinute: TimeInterval = 30
     
-        for var entry in londonTimeline {
+        for var entry in chosenLocation.timeline {
             entry.date = eventDate
             eventDate += halfMinute
             entries.append(entry)
@@ -64,6 +72,8 @@ struct WeatherWidgetEntryView : View {
                 }
             }
         }
+        .widgetURL(entry.url)   // 위젯에 딥링크 추가
+        // 이후 앱에 딥링크 추가
     }
 }
 
@@ -108,22 +118,19 @@ struct WeatherWidget: Widget {
 
 struct WeatherWidget_Previews: PreviewProvider {
     static var previews: some View {
-        
         Group {
             WeatherWidgetEntryView(entry: WeatherEntry(date: Date(),
                                                        city: "London", temperature: 89,
                                                        description: "Thunder Storm",
-                                                       icon: "cloud.bolt.rain", image: "thunder"))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+                                                       icon: "cloud.bolt.rain", image: "thunder", url: thunderUrl))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
     
             WeatherWidgetEntryView(entry: WeatherEntry(date: Date(),
                   city: "London", temperature: 89,
                   description: "Thunder Storm", icon: "cloud.bolt.rain",
-                        image: "thunder"))
+                        image: "thunder", url: thunderUrl))
                 .previewContext(WidgetPreviewContext(
                                          family: .systemMedium))
-            
         }
-        
     }
 }
