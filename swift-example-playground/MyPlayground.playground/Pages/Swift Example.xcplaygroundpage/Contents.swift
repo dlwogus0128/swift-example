@@ -795,3 +795,48 @@ levelStructInstance.levelUp()
 levelStructInstance.levelDown()
 levelStructInstance.jumpLevel(to: 3)
 levelStructInstance.reset()
+
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var numberOne: Double = 5.4
+var numberTwo: Double = 10.4
+
+//swapTwoInts(&number, &numberTwo)
+
+// inout은 말 그대로 들어온 값이 그대로 나오는 것
+// 들어온 파라미터 값이 그대로 적용이 된다는 뜻
+func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+swapTwoValues(&numberOne, &numberTwo)
+print("\(numberOne), \(numberTwo)")
+
+struct Stack<T> {
+    var items = [T]()
+    
+    mutating func push(_ item: T) {
+        items.append(item)
+    }
+    
+    mutating func pop() -> T {
+        return items.removeLast()
+    }
+}
+
+var stringStack: Stack<String> = Stack<String>()
+
+stringStack.push("재현")
+print(stringStack.items)
+
+func substractTwoValue<T: BinaryInteger>(_ a: T, _ b: T) -> T {
+    return a - b
+}
+
+substractTwoValue(1, 2)
