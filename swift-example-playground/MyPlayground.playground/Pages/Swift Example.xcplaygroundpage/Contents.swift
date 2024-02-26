@@ -796,6 +796,7 @@ levelStructInstance.levelDown()
 levelStructInstance.jumpLevel(to: 3)
 levelStructInstance.reset()
 
+<<<<<<< Updated upstream
 func swapTwoInts(_ a: inout Int, _ b: inout Int) {
     let temporaryA = a
     a = b
@@ -840,3 +841,64 @@ func substractTwoValue<T: BinaryInteger>(_ a: T, _ b: T) -> T {
 }
 
 substractTwoValue(1, 2)
+=======
+func solution(_ my_string:String, _ overwrite_string:String, _ s:Int) -> String {
+    let firstIndex = my_string.index(my_string.startIndex, offsetBy: s)
+    let secondIndex = my_string.index(my_string.startIndex, offsetBy: overwrite_string.count + s)
+    
+    return String(my_string[..<firstIndex] + overwrite_string) + String(my_string[secondIndex...])
+}
+
+solution("hahaa", "k", 2)
+
+func solution(_ str1:String, _ str2:String) -> String {
+    var result: String = String()
+    
+    for i in 0..<str1.count {
+        let index = str1.index(str1.startIndex, offsetBy: 0)
+        result.append(str1[index])
+        result.append(str2[index])
+    }
+    
+    return result
+}
+
+solution("haha", "zzzz")
+
+//func solution(_ a:Int, _ b:Int) -> Int {
+//    let ab: Int = Int(zip(a,b).joined()) ??
+//    let ba: Int = Int(zip(b,a).joined())
+//    return ab > ba ? ab : ba
+//}
+//
+//solution(1, 3)
+
+stride(from: 0, to: 10, by: 2).reduce(0, +)
+func solution(_ ineq:String, _ eq:String, _ n:Int, _ m:Int) -> Int {
+    switch (ineq, eq) {
+    case (">", "="):
+        return n >= m ? 1 : 0
+    case ("<", "="):
+        return n <= m ? 1 : 0
+    case (">", "!"):
+        return n > m ? 1 : 0
+    case ("<", "!"):
+        return n < m ? 1 : 0
+    default:
+        return -1
+    }
+}
+
+func solution(_ num_list:[Int]) -> Int {
+    var a: String = String()
+    var b: String = String()
+    
+    for num in num_list {
+        num.isMultiple(of: 2) ? a.append(String(num)) : b.append(String(num))
+    }
+    
+    return Int(a)! + Int(b)!
+}
+
+solution([1, 3, 2, 9])
+>>>>>>> Stashed changes
