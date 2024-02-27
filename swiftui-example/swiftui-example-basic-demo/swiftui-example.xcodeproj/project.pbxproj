@@ -58,6 +58,7 @@
 		23975D352B676F2500F73D87 /* SpeedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D342B676F2500F73D87 /* SpeedControlView.swift */; };
 		23975D392B67712F00F73D87 /* DemoProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D382B67712F00F73D87 /* DemoProjectView.swift */; };
 		23975D3B2B6777B000F73D87 /* ConcurrncyDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */; };
+		23BAFC6A2B8DA8DD00CD15C9 /* HealthKitDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAFC692B8DA8DD00CD15C9 /* HealthKitDemoView.swift */; };
 		23D513A92B69CBEE00EBF4C7 /* TabViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */; };
 		23D513AC2B69CE4500EBF4C7 /* ContextMenuDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */; };
 		23D513AF2B69CFEA00EBF4C7 /* DrawDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */; };
@@ -147,6 +148,8 @@
 		23975D342B676F2500F73D87 /* SpeedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedControlView.swift; sourceTree = "<group>"; };
 		23975D382B67712F00F73D87 /* DemoProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProjectView.swift; sourceTree = "<group>"; };
 		23975D3A2B6777B000F73D87 /* ConcurrncyDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrncyDemoView.swift; sourceTree = "<group>"; };
+		23BAFC682B8DA7DB00CD15C9 /* watch-demo Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watch-demo Watch App.entitlements"; sourceTree = "<group>"; };
+		23BAFC692B8DA8DD00CD15C9 /* HealthKitDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDemoView.swift; sourceTree = "<group>"; };
 		23D513A82B69CBEE00EBF4C7 /* TabViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemoView.swift; sourceTree = "<group>"; };
 		23D513AB2B69CE4500EBF4C7 /* ContextMenuDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDemoView.swift; sourceTree = "<group>"; };
 		23D513AE2B69CFEA00EBF4C7 /* DrawDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawDemoView.swift; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 		23490D2C2B8C1A910046FD37 /* watch-demo Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				23BAFC682B8DA7DB00CD15C9 /* watch-demo Watch App.entitlements */,
 				23490D2D2B8C1A910046FD37 /* watch_demoApp.swift */,
 				23490D2F2B8C1A910046FD37 /* ContentView.swift */,
 				23490D312B8C1A920046FD37 /* Assets.xcassets */,
@@ -340,6 +344,7 @@
 				23975D232B67446E00F73D87 /* Assets.xcassets */,
 				23975D252B67446E00F73D87 /* swiftui_example.entitlements */,
 				23975D262B67446E00F73D87 /* Preview Content */,
+				23BAFC692B8DA8DD00CD15C9 /* HealthKitDemoView.swift */,
 			);
 			path = "swiftui-example";
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				2333360C2B71F4D9000725F2 /* MyImagePicker.swift in Sources */,
 				232C7EF92B68C40600451181 /* CarData.swift in Sources */,
 				23D513B22B69E43D00EBF4C7 /* AnimationDemoView.swift in Sources */,
+				23BAFC6A2B8DA8DD00CD15C9 /* HealthKitDemoView.swift in Sources */,
 				2346B1752B6B1A0F00C3CBA0 /* DocDemoView.swift in Sources */,
 				232C7EFB2B68C50300451181 /* CarStore.swift in Sources */,
 				23D513B92B6A2F9C00EBF4C7 /* ProgressDemoView.swift in Sources */,
@@ -633,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "watch-demo Watch App/watch-demo Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"watch-demo Watch App/Preview Content\"";
@@ -640,6 +647,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "watch-demo";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "need to collect users health info.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "need to collect users health info.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.reenact.swiftui-example";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -664,6 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "watch-demo Watch App/watch-demo Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"watch-demo Watch App/Preview Content\"";
@@ -671,6 +681,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "watch-demo";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "need to collect users health info.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "need to collect users health info.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.reenact.swiftui-example";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
